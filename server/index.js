@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.get('/:id', function(req , res){
   
   var query = list.findOne({"place_id": req.params.id});
-  query.select("photos");
+  //query.select("photos");
   query.exec(function(err, photos){
   	if(err){
   		console.log(err);
@@ -35,8 +35,8 @@ app.get('/:id', function(req , res){
           //console.log(s3String);
           restaurantPhotosArray.push(s3String); 
   		}
-  		//var result = JSON.stringify(restaurantPhotosArray)
-  		res.send(restaurantPhotosArray);
+      
+  		res.send({photoArray: restaurantPhotosArray, restaurantName: photos.name});
   	}
   })
 
