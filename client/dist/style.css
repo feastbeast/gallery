@@ -110,9 +110,7 @@ span{
 	grid-gap: .25em;
 	height: 100%;
 	width:100%;
-	
-	overflow: auto;
-	   
+	overflow: auto;   
 }
 
 .gridThumbnail{
@@ -125,6 +123,10 @@ span{
 }	
 img:hover{
  cursor: pointer;
+}
+img{
+ max-height: 600px;
+ max-width: 600px;
 }
 .ReactModal__Content{
 	z-index: 300;
