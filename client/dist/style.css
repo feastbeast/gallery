@@ -1,0 +1,133 @@
+body{
+	margin: 0;
+}
+.openGrid{
+	display: grid;
+	grid-template-columns: 1fr .5fr 1fr .5fr 1fr;
+	grid-gap: .25em;
+	height: 384px;
+	overflow: hidden;
+	margin-top: 79px;
+	grid-template-areas: 
+    "a a a a b b b b"
+    "a a a a b b b b"
+    "c c c c d d d d"
+    "c c c c d d d d";
+		   
+}
+.verticalGrid{
+	width:250px;
+	display: grid;
+	grid-gap: .25em;
+	grid-template-columns: 1fr;
+	overflow: hidden;
+}
+
+.bigThumbnail{
+	height: 384px;
+	width: 520PX;
+}
+.smallThumbnail{
+	height: 190px;
+	width:250px;	
+}
+
+.horizontalGrid{
+	height: 384px;
+	width: 520PX;
+	overflow: hidden;
+}
+.verticalCol{
+	height: 190px;
+	width:250px;
+	overflow: hidden;
+}
+
+.smallThumbnail:hover{
+   cursor: pointer;
+   transform: scale(1.02);
+   transition: transform .5s ease-in-out;
+}
+.bigThumbnail:hover{
+   cursor: pointer;
+   transform: scale(1.02);
+   transition: transform .5s ease-in-out;
+}
+.numBox{
+	background-color: rgba(16,24,32,.75);
+    height: 40px;
+    width: 120px;
+    padding-right: 10px;
+    padding-left: 16px; 
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    right: 3% ;
+    margin-top: 12%;
+    display: grid;
+}
+
+span{
+	margin:auto;
+	font-size: small;
+}
+
+.plus{
+	font-size: 20px;
+    font-weight: lighter;
+}
+.material-icons.cancel{
+	position: absolute;
+	z-index: 1;
+	color: black;
+	border-radius: 100%;
+    top: 10px;
+ 
+    margin-left: 93%;
+    text-align: center;
+    background: white;
+    font-weight: 900;
+}
+.material-icons.apps{
+	position: absolute;
+	z-index: 300;
+	color: white;
+	background: black;	
+    font-weight: 100;
+}
+.material-icons:hover{
+   cursor: pointer;
+   transition: transform 1s ease-in-out;
+   color: white;
+   background: black;
+}
+.open{
+	background: none;
+}
+.FullOpenGrid{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: .25em;
+	height: 100%;
+	width:100%;
+	
+	overflow: auto;
+	   
+}
+
+.gridThumbnail{
+	height: 200px;
+	width: 100%;
+}
+.eachImage{
+	height: 200px;
+	width: 100%;
+}	
+img:hover{
+ cursor: pointer;
+}
+.ReactModal__Content{
+	z-index: 300;
+	position: absolute;
+
+}
