@@ -85,23 +85,37 @@ span{
 	color: rgba(16,24,32,.75);
 	border-radius: 100%;
     top: 10px;
+    background: white;
+  
  
-    margin-left: 93%;
+    margin-left: 97%;
     text-align: center;
     
     font-weight: 900;
 }
 .material-icons.apps{
-	position: absolute;
+	
 	z-index: 300;
 	color: white;
 	background: black;	
     font-weight: 100;
+    width: 40px;
+    height: 35px;
+    border: none;
+    opacity: 0.7;
 }
 .material-icons:hover{
    cursor: pointer;
    transition: transform 1s ease-in-out;
    color: white;
+   background: black;
+}
+.material-icons.cancel:hover{
+   cursor: pointer;
+   transition: transform 1s ease-in-out;
+   color: white;
+    transform: scale(1.2);
+   transition: transform .5s ease-in-out;
 }
 .open{
 	background: none;
@@ -130,18 +144,52 @@ img{
  max-height: 600px;
  max-width: 600px;
 }
-.ReactModal__Content--after-open{
-	z-index: 300;
-	position: absolute;
 
-}
 .ril-toolbar__item{
-	margin-left: 100px;
+	margin-left: 80px;
+	opacity: .7;
 }
 
 .ril-toolbar__item__child{
 	font-size: large;
+	opacity: .7;
 }
-.button{
-	color: white;
+
+.btn{
+  background-color: yellow;
+}
+.btn:visited{
+  background-color: red;
+}
+.btn:hover {
+  background-color: skyblue;
+}
+.btn:active{
+  background-color: pink;
+}
+.btn:focus{ 
+  background-color: #4dd0e1 
+}
+.waves-effect .waves-light .btn:focus{
+	background-color: pink;
+}
+.restaurantName{
+	    font-size: 20px;
+    color: white;
+    opacity: .7;
+    margin-left: 40%;
+    padding: 10px;
+}
+
+.ril-next-button:hover{
+	background-color: black;
+}
+.ril-next-button:visited{
+	background-color: black;
+}
+.ril-next-button:active{
+	background-color: black;
+}
+.ril-next-button:focus{
+	background-color: black;
 }

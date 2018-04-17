@@ -27,6 +27,7 @@ class ApateezGallery extends React.Component {
     this.getRequestWithId = this.getRequestWithId.bind(this);
     this.clickHandle = this.clickHandle.bind(this);
     this.clickView = this.clickView.bind(this);
+    this.clickHandleView = this.clickHandleView.bind(this);
   }
   componentWillMount(){
     Modal.setAppElement(document.getElementById('app'));
@@ -48,21 +49,55 @@ class ApateezGallery extends React.Component {
   clickHandle(clickedIndex){
 
     this.setState({ isOpen: true, photoIndex: clickedIndex });
-    $('.ril-toolbar ril__toolbar').hide();
+    
+  }
+  clickHandleView(){
+
+    this.setState({ isOpen: false, fullGalleryGrid:true});
+    
   }
 
   clickView(){
     this.setState({fullGalleryGrid: !this.state.fullGalleryGrid});
   }
   render(){
-     
+    
      const { photoIndex, isOpen, images, fullGalleryGrid, restaurantName } = this.state;
          return (
       <div>
             <div>
-              <Modal isOpen={fullGalleryGrid}>
+              <Modal isOpen={fullGalleryGrid}
+                  style={{
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(11, 11, 11, 0.92)'
+    },
+    content: {
+      position: 'absolute',
+      top: '50px',
+      left: '40px',
+      right: '40px',
+      bottom: '40px',
+      border: '0px solid #ccc',
+      background: '#fff',
+      overflow: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      borderRadius: '4px',
+      outline: 'none',
+      padding: '0px',
+      backgroundColor: 'rgba(28, 22, 22, 0.29)'
+
+    }
+    
+  }}
+              >
+                <div className = "restaurantName">{restaurantName}</div>
                 <FullGalleryOpenGrid images = {images} clickHandle = {this.clickHandle}/>
-                <i className=" cancel medium material-icons " onClick = {this.clickView}>cancel</i>
+                <i className=" cancel small material-icons " onClick = {this.clickView}>cancel</i>
               </Modal>
             </div>
           <OpeningPageGalleryView images = {images} clickHandle = {this.clickHandle} clickView = {this.clickView}/>
@@ -71,10 +106,8 @@ class ApateezGallery extends React.Component {
         {isOpen && (
           <div>
 
-          
-
           <Lightbox
-            toolbarButtons={ [ restaurantName, <i onClick = {this.clickView} className=" apps small material-icons">apps</i>, (photoIndex+1)+ " of "+ images.length] }
+            toolbarButtons={ [ restaurantName, <i onClick = {this.clickHandleView } className="ril__toolbarItem apps small material-icons">apps</i>, (photoIndex+1)+ " of "+ images.length] }
             
             mainSrc={images[photoIndex]}
             nextSrc={images[(photoIndex + 1) % images.length]}
