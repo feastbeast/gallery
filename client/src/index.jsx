@@ -34,7 +34,7 @@ class ApateezGallery extends React.Component {
   }
   componentDidMount(){
     //ajax request for getting the photos and name of restaurant 
-    this.getRequestWithId("ChIJFUBxSY6AhYARwOaLV7TsLjw"); 
+    this.getRequestWithId("ChIJN2S4EI2AhYAR9J4Qeh1U8Aw"); 
   }
 
   getRequestWithId(id){
@@ -107,6 +107,7 @@ class ApateezGallery extends React.Component {
           <div>
 
           <Lightbox
+            enableZoom= {false}
             toolbarButtons={ [ <span className = "restaurantN">{restaurantName.toUpperCase()}</span>, <span className = "photoNum">{(photoIndex+1)+ " of "+ images.length}</span>, <i onClick = {this.clickHandleView } className="ril__toolbarItem apps small material-icons">apps</i>] }
             mainSrc={images[photoIndex]}
             nextSrc={images[(photoIndex + 1) % images.length]}

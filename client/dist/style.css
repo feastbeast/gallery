@@ -140,16 +140,10 @@ img{
 }
 
 .ril-toolbar__item{
-	margin-left: 80px;
+	margin-left: 180px;
 	opacity: .9;
     font-size: 10px;
 }
-
-.ril-toolbar__item__child{
-	font-size: small;
-	opacity: .9;
-}
-
 .restaurantName{
 	font-size: 15px;
     color: white;
@@ -188,10 +182,4 @@ img{
 }
 .restaurantN{
 	font-size: 14px;
-}
-.ril__zoomOutButton{
-	display: none;
-}
-.ril__zoomInButton{
-	display: none;
 }
