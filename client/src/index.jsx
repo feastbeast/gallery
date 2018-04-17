@@ -67,33 +67,33 @@ class ApateezGallery extends React.Component {
       <div>
             <div>
               <Modal isOpen={fullGalleryGrid}
-                  style={{
-    overlay: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(11, 11, 11, 0.92)'
-    },
-    content: {
-      position: 'absolute',
-      top: '50px',
-      left: '40px',
-      right: '40px',
-      bottom: '40px',
-      border: '0px solid #ccc',
-      background: '#fff',
-      overflow: 'auto',
-      WebkitOverflowScrolling: 'touch',
-      borderRadius: '4px',
-      outline: 'none',
-      padding: '0px',
-      backgroundColor: 'rgba(28, 22, 22, 0.29)'
+                style={{
+                  overlay: {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(16,24,32,.95)'
+                  },
+                  content: {
+                    position: 'absolute',
+                    top: '50px',
+                    left: '40px',
+                    right: '40px',
+                    bottom: '40px',
+                    border: '0px solid #ccc',
+                    background: '#fff',
+                    overflow: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                    borderRadius: '4px',
+                    outline: 'none',
+                    padding: '0px',
+                    backgroundColor: 'rgba(28, 22, 22, 0.29)'
 
-    }
-    
-  }}
+                  }
+                  
+                }}
               >
                 <div className = "restaurantName">{restaurantName.toUpperCase()}</div>
                 <FullGalleryOpenGrid images = {images} clickHandle = {this.clickHandle}/>
@@ -108,7 +108,6 @@ class ApateezGallery extends React.Component {
 
           <Lightbox
             toolbarButtons={ [ <span className = "restaurantN">{restaurantName.toUpperCase()}</span>, <span className = "photoNum">{(photoIndex+1)+ " of "+ images.length}</span>, <i onClick = {this.clickHandleView } className="ril__toolbarItem apps small material-icons">apps</i>] }
-            
             mainSrc={images[photoIndex]}
             nextSrc={images[(photoIndex + 1) % images.length]}
             prevSrc={images[(photoIndex + images.length - 1) % images.length]}

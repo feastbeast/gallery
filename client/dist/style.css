@@ -7,13 +7,7 @@ body{
 	grid-gap: .25em;
 	height: 384px;
 	overflow: hidden;
-	margin-top: 79px;
-	grid-template-areas: 
-    "a a a a b b b b"
-    "a a a a b b b b"
-    "c c c c d d d d"
-    "c c c c d d d d";
-		   
+	margin-top: 79px;	   
 }
 .verticalGrid{
 	width:250px;
@@ -114,7 +108,7 @@ span{
    cursor: pointer;
    transition: transform 1s ease-in-out;
    color: white;
-    transform: scale(1.2);
+   transform: scale(1.2);
    transition: transform .5s ease-in-out;
 }
 .open{
@@ -133,22 +127,25 @@ span{
 	height: 250px;
 	width: 100%;
 }
+
 .eachImage{
 	height: 250px;
 	width: 100%;
 }	
+
 img:hover{
- cursor: pointer;
+    cursor: pointer;
 }
+
 img{
- max-height: 650px;
- max-width: 600px;
+    max-height: 650px;
+    max-width: 600px;
 }
 
 .ril-toolbar__item{
 	margin-left: 80px;
 	opacity: .9;
-	font-size: 10px;
+    font-size: 10px;
 }
 
 .ril-toolbar__item__child{
@@ -156,28 +153,12 @@ img{
 	opacity: .9;
 }
 
-.btn{
-  background-color: yellow;
-}
-.btn:visited{
-  background-color: red;
-}
-.btn:hover {
-  background-color: skyblue;
-}
-.btn:active{
-  background-color: pink;
-}
-.btn:focus{ 
-  background-color: #4dd0e1 
-}
-
 .restaurantName{
-	    font-size: 15px;
+	font-size: 15px;
     color: white;
     opacity: .9;
     margin-left: 43%;
-    padding: 10px;
+    padding: 15px;
 }
 
 .ril-next-button:hover{
