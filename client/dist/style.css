@@ -66,6 +66,9 @@ body{
     margin-top: 12%;
     display: grid;
 }
+.numBox:hover{
+	background: black;
+}
 
 span{
 	margin:auto;
@@ -79,13 +82,13 @@ span{
 .material-icons.cancel{
 	position: absolute;
 	z-index: 1;
-	color: black;
+	color: rgba(16,24,32,.75);
 	border-radius: 100%;
     top: 10px;
  
     margin-left: 93%;
     text-align: center;
-    background: white;
+    
     font-weight: 900;
 }
 .material-icons.apps{
@@ -99,7 +102,6 @@ span{
    cursor: pointer;
    transition: transform 1s ease-in-out;
    color: white;
-   background: black;
 }
 .open{
 	background: none;
@@ -114,11 +116,11 @@ span{
 }
 
 .gridThumbnail{
-	height: 200px;
+	height: 250px;
 	width: 100%;
 }
 .eachImage{
-	height: 200px;
+	height: 250px;
 	width: 100%;
 }	
 img:hover{
@@ -128,8 +130,18 @@ img{
  max-height: 600px;
  max-width: 600px;
 }
-.ReactModal__Content{
+.ReactModal__Content--after-open{
 	z-index: 300;
 	position: absolute;
 
+}
+.ril-toolbar__item{
+	margin-left: 100px;
+}
+
+.ril-toolbar__item__child{
+	font-size: large;
+}
+.button{
+	color: white;
 }

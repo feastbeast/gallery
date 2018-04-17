@@ -28,6 +28,9 @@ class ApateezGallery extends React.Component {
     this.clickHandle = this.clickHandle.bind(this);
     this.clickView = this.clickView.bind(this);
   }
+  componentWillMount(){
+    Modal.setAppElement(document.getElementById('app'));
+  }
   componentDidMount(){
     //ajax request for getting the photos and name of restaurant 
     this.getRequestWithId(); 
@@ -52,8 +55,8 @@ class ApateezGallery extends React.Component {
     this.setState({fullGalleryGrid: !this.state.fullGalleryGrid});
   }
   render(){
-
-     const { photoIndex, isOpen, images, fullGalleryGrid } = this.state;
+     
+     const { photoIndex, isOpen, images, fullGalleryGrid, restaurantName } = this.state;
          return (
       <div>
             <div>
@@ -71,7 +74,8 @@ class ApateezGallery extends React.Component {
           
 
           <Lightbox
-
+            toolbarButtons={ [ restaurantName, <i onClick = {this.clickView} className=" apps small material-icons">apps</i>, (photoIndex+1)+ " of "+ images.length] }
+            
             mainSrc={images[photoIndex]}
             nextSrc={images[(photoIndex + 1) % images.length]}
             prevSrc={images[(photoIndex + images.length - 1) % images.length]}
