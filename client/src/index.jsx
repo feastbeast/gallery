@@ -34,12 +34,12 @@ class ApateezGallery extends React.Component {
   }
   componentDidMount(){
     //ajax request for getting the photos and name of restaurant 
-    this.getRequestWithId(); 
+    this.getRequestWithId("ChIJFUBxSY6AhYARwOaLV7TsLjw"); 
   }
 
-  getRequestWithId(){
+  getRequestWithId(id){
     var appContext = this;
-    $.ajax({url: "/ChIJFUBxSY6AhYARwOaLV7TsLjw", 
+    $.ajax({url: "/"+ id, 
             method: "GET", 
             success: function(data){
               appContext.setState({images: data.photoArray, restaurantName: data.restaurantName});
