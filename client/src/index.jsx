@@ -95,7 +95,7 @@ class ApateezGallery extends React.Component {
     
   }}
               >
-                <div className = "restaurantName">{restaurantName}</div>
+                <div className = "restaurantName">{restaurantName.toUpperCase()}</div>
                 <FullGalleryOpenGrid images = {images} clickHandle = {this.clickHandle}/>
                 <i className=" cancel small material-icons " onClick = {this.clickView}>cancel</i>
               </Modal>

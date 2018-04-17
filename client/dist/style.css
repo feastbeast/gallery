@@ -88,7 +88,7 @@ span{
     background: white;
   
  
-    margin-left: 97%;
+    margin-left: 97.5%;
     text-align: center;
     
     font-weight: 900;
@@ -141,7 +141,7 @@ img:hover{
  cursor: pointer;
 }
 img{
- max-height: 600px;
+ max-height: 650px;
  max-width: 600px;
 }
 
@@ -173,10 +173,10 @@ img{
 }
 
 .restaurantName{
-	    font-size: 20px;
+	    font-size: 15px;
     color: white;
-    opacity: .7;
-    margin-left: 40%;
+    opacity: .9;
+    margin-left: 43%;
     padding: 10px;
 }
 
