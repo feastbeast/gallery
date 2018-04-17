@@ -38,14 +38,14 @@ body{
 }
 
 .smallThumbnail:hover{
-   cursor: pointer;
-   transform: scale(1.02);
-   transition: transform .5s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: transform .5s ease-in-out;
 }
 .bigThumbnail:hover{
-   cursor: pointer;
-   transform: scale(1.02);
-   transition: transform .5s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: transform .5s ease-in-out;
 }
 .numBox{
 	background-color: rgba(16,24,32,.75);
@@ -80,11 +80,8 @@ span{
 	border-radius: 100%;
     top: 10px;
     background: white;
-  
- 
     margin-left: 97.5%;
     text-align: center;
-    
     font-weight: 900;
 }
 .material-icons.apps{
@@ -173,10 +170,28 @@ img{
 .ril-next-button:focus{
 	background-color: black;
 }
+.ril-prev-button:hover{
+	background-color: black;
+}
+.ril-prev-button:visited{
+	background-color: black;
+}
+.ril-prev-button:active{
+	background-color: black;
+}
+.ril-prev-button:focus{
+	background-color: black;
+}
 .photoNum{
 	font-size: 12px;
 	font-weight: lighter;
 }
 .restaurantN{
 	font-size: 14px;
+}
+.ril__zoomOutButton{
+	display: none;
+}
+.ril__zoomInButton{
+	display: none;
 }

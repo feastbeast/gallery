@@ -8,7 +8,6 @@ import {Button, Icon, Modal} from 'react-materialize';
 class OpeningPageGalleryView extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
@@ -29,17 +28,17 @@ class OpeningPageGalleryView extends React.Component {
         <div className = "horizontalGrid">
           <img src = {this.props.images[3]} className= "bigThumbnail" onClick = {()=>this.props.clickHandle(3)}></img>
         </div> 
+
         <div className= "verticalGrid">  
           <div className = "verticalCol"> 
             <img src = {this.props.images[4]} className= "smallThumbnail" onClick = {()=>this.props.clickHandle(4)}></img>
-          </div>   
+          </div>  
           <div className = "verticalCol"> 
-            
             <img src = {this.props.images[5]} className= "smallThumbnail" onClick = {()=>this.props.clickHandle(5)}></img>
-          </div>   
+          </div>  
+
         </div>  
           <NumBox imageslength = {this.props.images.length} clickView = {this.props.clickView}/>
-
 
       </div>
     )
@@ -54,11 +53,9 @@ class NumBox extends React.Component{
   }
   
   render(){
-
     return(
       <div height = "40px" width = "123px" className = "numBox" onClick = {this.props.clickView} ><span>{this.props.imageslength + "  PHOTOS"}<span className = "plus">+</span></span></div>
     )
-    
   }
 }
 export default OpeningPageGalleryView;
