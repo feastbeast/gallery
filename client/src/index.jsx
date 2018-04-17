@@ -107,7 +107,7 @@ class ApateezGallery extends React.Component {
           <div>
 
           <Lightbox
-            toolbarButtons={ [ restaurantName, <i onClick = {this.clickHandleView } className="ril__toolbarItem apps small material-icons">apps</i>, (photoIndex+1)+ " of "+ images.length] }
+            toolbarButtons={ [ <span className = "restaurantN">{restaurantName.toUpperCase()}</span>, <span className = "photoNum">{(photoIndex+1)+ " of "+ images.length}</span>, <i onClick = {this.clickHandleView } className="ril__toolbarItem apps small material-icons">apps</i>] }
             
             mainSrc={images[photoIndex]}
             nextSrc={images[(photoIndex + 1) % images.length]}
