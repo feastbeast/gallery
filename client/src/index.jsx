@@ -6,6 +6,9 @@ import {Button, Icon} from 'react-materialize';
 import Modal from 'react-modal';
 import OpeningPageGalleryView from './openingGrid.jsx';
 import FullGalleryOpenGrid from './fullGalleryOpenGrid.jsx';
+import Header from './Header.jsx';
+import Social from './social.jsx';
+
    
 //we also need to make the opening view of the gallery that takes first 6 photos
 
@@ -34,7 +37,7 @@ class ApateezGallery extends React.Component {
   }
   componentDidMount(){
     //ajax request for getting the photos and name of restaurant 
-    this.getRequestWithId("ChIJN2S4EI2AhYAR9J4Qeh1U8Aw"); 
+    this.getRequestWithId("ChIJFUBxSY6AhYARwOaLV7TsLjw"); 
   }
 
   getRequestWithId(id){
@@ -65,6 +68,10 @@ class ApateezGallery extends React.Component {
      const { photoIndex, isOpen, images, fullGalleryGrid, restaurantName } = this.state;
          return (
       <div>
+      <Social/>
+
+       <Header/>
+
             <div>
               <Modal isOpen={fullGalleryGrid}
                 style={{
@@ -78,7 +85,7 @@ class ApateezGallery extends React.Component {
                   },
                   content: {
                     position: 'absolute',
-                    top: '50px',
+                    top: '10px',
                     left: '40px',
                     right: '40px',
                     bottom: '40px',

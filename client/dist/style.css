@@ -1,13 +1,157 @@
 body{
 	margin: 0;
+	font-family: 'Source Sans Pro', sans-serif;
 }
+.header{
+	display: grid;
+	grid-template-columns: 1.2fr 2fr 1fr 1fr 1fr ;
+	height: 79px;
+}
+.rightside{
+	text-align: center;
+	padding-top: 20%;
+}
+.hoverred{
+    	
+	color:#656666;	
+}
+.hoverred:hover{
+    cursor: pointer;	
+	color:#b70038;	
+}
+.logo{
+	background: url("https://s3-us-west-1.amazonaws.com/apateezassets/apateez-logo-long-white.jpeg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-right:1px solid #d0d2d3;
+	background-position:center;
+
+}
+.logo:hover{
+	background: url("https://s3-us-west-1.amazonaws.com/apateezassets/apateez-logo-long-red.jpeg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-right:1px solid #d0d2d3;
+	background-position:center;
+
+}
+.searchbox{
+	border-right:1px solid #d0d2d3;	
+	padding-left: 5%;
+	padding-right:5%;
+	top:10px;
+	letter-spacing: 1.2px;
+	color:#656666;	
+
+
+}
+i.searchIcon{
+	display: inline-block;	
+	font-size: 20px;
+	padding-top:15px;
+
+}
+input.input{
+
+	height: 19px;
+	border-bottom:1px solid #d0d2d3;
+}
+.social{
+	top:430px;
+	right: 0px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    justify-content: flex-end;
+    align-self: right;
+	background: #101820;
+	position: absolute;
+	height: 60px;
+	width: 390px;
+	z-index: 1;
+	padding: 1%;
+}
+.smallsocial{
+	top:430px;
+	right: 0px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: flex-end;
+    align-self: right;
+	background: #101820;
+	position: absolute;
+	height: 60px;
+	width: 250px;
+	z-index: 1;
+	padding: 1%;
+}
+#dropdown_0{
+	top:50px;
+}
+i.medium {
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    background: black;
+    border-style: solid;
+    border-width: 1px;	
+    height: 40px;
+    width: 40px;
+}
+.fa-twitter{
+	background-color: white;
+ border-radius: 50%;
+ border: 1x solid grey;
+ padding:10px;
+ size: 10px;
+}
+.fa-pinterest{
+	background-color: white;
+ border-radius: 50%;
+ border: 1x solid grey;
+ padding:10px;
+ size: 10px;
+}
+.fa-google-plus{
+	background-color: white;
+ border-radius: 50%;
+ border: 1x solid grey;
+ padding:10px;
+ size: 10px;
+}
+.fa-envelope{
+	background-color: white;
+ border-radius: 50%;
+ border: 1x solid grey;
+ padding:10px;
+ size: 10px;
+}
+.fa-ellipsis-h{
+	background-color: white;
+ border-radius: 50%;
+ border: 1x solid grey;
+ padding:10px;
+ size: 10px;
+}
+.fa-times-circle{
+	background-color: white;
+ border-radius: 50%;
+ border: 1x solid grey;
+ padding:10px;
+ size: 10px;
+}
+
+.fa-twitter:hover{
+   background: blue;
+}
+
+
 .openGrid{
 	display: grid;
 	grid-template-columns: 1fr .5fr 1fr .5fr 1fr;
 	grid-gap: .25em;
 	height: 384px;
 	overflow: hidden;
-	margin-top: 79px;	   
+	top: 79px;	   
 }
 .verticalGrid{
 	width:250px;
@@ -76,7 +220,7 @@ span{
 .material-icons.cancel{
 	position: absolute;
 	z-index: 1;
-	color: rgba(16,24,32,.75);
+	color: rgba(16,24,32,.95);
 	border-radius: 100%;
     top: 10px;
     background: white;
@@ -117,7 +261,8 @@ span{
 	grid-gap: .25em;
 	height: 100%;
 	width:100%;
-	overflow: auto;   
+	overflow: auto;  
+	z-index: 2;	 
 }
 
 .gridThumbnail{
@@ -147,9 +292,10 @@ img{
 .restaurantName{
 	font-size: 15px;
     color: white;
-    opacity: .9;
+    opacity: 1;
     margin-left: 43%;
-    padding: 15px;
+    padding: 20px;
+    letter-spacing: 1.5px;
 }
 
 .ril-next-button:hover{
@@ -182,4 +328,15 @@ img{
 }
 .restaurantN{
 	font-size: 14px;
+}
+.dropdown-content li {
+	margin-top: 20px;
+    clear: both;
+    color: rgba(0,0,0,0.87);
+    cursor: pointer;
+    min-height: 50px;
+    line-height: 1.5rem;
+    width: 100%;
+    text-align: center;
+    text-transform: none;
 }

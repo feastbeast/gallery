@@ -3,7 +3,7 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const listSchema = new mongoose.Schema({
-  place_id: String,
+  place_id: {unique: true, type:String},
   name: String,
   photos: Array
 });

@@ -26,14 +26,14 @@ app.get('/:id', function(req , res){
   		console.log(err);
   	} else{
   		//console.log(photos.photos);
-  		var s3String = "//s3-us-west-1.amazonaws.com/apateezgallery/"
+  		var s3String = "//s3-us-west-1.amazonaws.com/apateezgallery93/"
   		//res.send(photos.photos);
   		//photos = Array.prototype.slice.call(photos);
   		var restaurantPhotosArray = [];
   		//console.log(Array.isArray(photos.photos));
   		//console.log(photos.photos[0].photo_reference);
   		for (var i = 0; i < photos.photos.length; i++ ){
-  		  var s3String = "//s3-us-west-1.amazonaws.com/apateezgallery/"+ photos.photos[i].photo_reference +	".png";
+  		  var s3String = "//s3-us-west-1.amazonaws.com/apateezgallery93/"+ photos.photos[i].photo_reference +	".png";
           //console.log(s3String);
           restaurantPhotosArray.push(s3String); 
   		}
@@ -41,7 +41,11 @@ app.get('/:id', function(req , res){
   		res.send({photoArray: restaurantPhotosArray, restaurantName: photos.name});
   	}
   })
-
+  // //find().skip(1).limit(2).pretty();
+   // list.find().limit(100).find(function(err, data){
+   //    res.send(data);
+   // });
+  // var j =1;
   // list.find(function(err, data){
   //    if (err){
   //     console.log(err);
@@ -52,12 +56,13 @@ app.get('/:id', function(req , res){
   //    		restaurant.photos.map(function(photo){
   //              //photo_reference = photo.photo_reference;
   //              requestImg.get
-	 //                 ("https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photo.photo_reference+"&key=AIzaSyD9LqS5ikcIdOCyJs5d25FL4zJM_nTwHhc", function(error, response, body){
+	 //                 ("https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photo.photo_reference+"&key=AIzaSyD7olNRQRLF6mNFwI0dyEyECWNqF8xXNZQ", function(error, response, body){
 		//          if (error){
 		// 	       console.log(error)
+            
 		//          }else{
 		//          console.log("writeFile---" + photo.photo_reference);	
-		// 	       fs.writeFile(__dirname+'/photo/'+ photo.photo_reference+'.png', body, function(){console.log("1")} );
+		// 	       fs.writeFile(__dirname+'/n/'+ photo.photo_reference+'.png', body, function(){console.log(j++)} );
 		//          }
 	 //           })
   //          })
@@ -67,7 +72,7 @@ app.get('/:id', function(req , res){
      
   // })
 
-    //res.end();
+    // res.end();
 
       // list.find(function(err, data){
  //     if (err){
@@ -81,6 +86,7 @@ app.get('/:id', function(req , res){
  //     	res.end();
  //     }
  //  })
+
 });
 
 
