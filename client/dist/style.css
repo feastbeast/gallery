@@ -61,7 +61,7 @@ input.input{
 	right: 0px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
-    justify-content: flex-end;
+    justify-content: center;
     align-self: right;
 	background: #101820;
 	position: absolute;
@@ -69,6 +69,7 @@ input.input{
 	width: 390px;
 	z-index: 1;
 	padding: 1%;
+	 
 }
 .smallsocial{
 	top:430px;
@@ -83,9 +84,42 @@ input.input{
 	width: 250px;
 	z-index: 1;
 	padding: 1%;
+
 }
-#dropdown_0{
-	top:50px;
+.dropdown-content {
+  background-color: #1c252c;
+  
+  opacity: .7;	
+  margin-top: 80px;
+
+  min-width: 300px; /* Changed this to accomodate content width */
+  max-height: auto;
+  margin-left: -1px; /* Add this to keep dropdown in line with edge of navbar */
+  position: relative;
+  border-bottom: 1px solid #656666;
+  border-right: 1px solid #656666;
+  min-height: 80px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.dropdown-content li {
+	margin-top: 20px;
+    
+    color: rgb(212, 241, 235);
+    cursor: pointer;
+    min-height: 50px;
+    line-height: 1.5rem;
+    width: 100%;
+    text-align: center;
+   
+    border-bottom: 1px solid #656666;
+    border-right: 1px solid #656666;
+    box-sizing: border-box;
+    min-height: 80px;
+    position: relative;
+    
+   
 }
 i.medium {
     font-size: 1.5rem;
@@ -96,6 +130,8 @@ i.medium {
     border-width: 1px;	
     height: 40px;
     width: 40px;
+    padding-left: 8px;
+    
 }
 .fa-twitter{
 	background-color: white;
@@ -329,14 +365,4 @@ img{
 .restaurantN{
 	font-size: 14px;
 }
-.dropdown-content li {
-	margin-top: 20px;
-    clear: both;
-    color: rgba(0,0,0,0.87);
-    cursor: pointer;
-    min-height: 50px;
-    line-height: 1.5rem;
-    width: 100%;
-    text-align: center;
-    text-transform: none;
-}
+

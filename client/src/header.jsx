@@ -28,16 +28,17 @@ class Header extends React.Component {
          <div>
            <div className = "rightside"><span className = "hoverred">CITY'S BEST</span></div>
          </div> 
-         <div ><Dropdown
+         <div ><Dropdown style = {{height:'100px'}}
          trigger={
            <div className = "rightside"><span className = "hoverred">SAN FRANCISCO</span></div>
                }>
              
-
-            <li>one</li>  
-            <li>two</li>
+          
+            <li>San Francisco</li>  
+            <li>Berkeley</li>
             
-            <li>three</li>
+            <li>Fremont</li>
+           
           </Dropdown></div>
         
       </div>
