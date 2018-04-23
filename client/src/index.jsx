@@ -44,7 +44,7 @@ class ApateezGallery extends React.Component {
 
   getRequestWithId(id){
     var appContext = this;
-    $.ajax({url: `/api/restaurants/${id}/gallery`, 
+    $.ajax({url: `http://localhost:2002/api/restaurants/${id}/gallery`, 
             method: "GET", 
             success: function(data){
               appContext.setState({images: data.photoArray, restaurantName: data.restaurantName, place_id:data.place_id});
