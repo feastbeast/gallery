@@ -16,8 +16,6 @@ class Header extends React.Component {
          <div className = "searchbox">
             <label>
             <i className=" searchIcon small material-icons">search</i> 
-            
-            
               <input placeholder = "Find a great place near you"className = "input" type="text" />
             </label>
          </div>
@@ -32,7 +30,6 @@ class Header extends React.Component {
          trigger={
            <div className = "rightside"><span className = "hoverred">SAN FRANCISCO</span></div>
                }>
-          
             <li>San Francisco</li>  
             <li>Berkeley</li>
             <li>Fremont</li>

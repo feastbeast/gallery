@@ -25,7 +25,6 @@ app.get('/:id/gallery', function(req , res){
   //query.select("photos");
   query.exec(function(err, photos){
 
-    
   	if(err){
   		console.log(err);
   	} else{
