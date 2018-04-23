@@ -22,10 +22,9 @@ app.get('/:id', function(req , res){
 app.get('/:id/gallery', function(req , res){
   
   var query = list.findOne({"place_id": req.params.id});
-  //query.select("photos");
+  
   query.exec(function(err, photos){
 
-    
   	if(err){
   		console.log(err);
   	} else{
