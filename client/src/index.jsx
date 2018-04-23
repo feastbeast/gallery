@@ -37,14 +37,14 @@ class ApateezGallery extends React.Component {
     Modal.setAppElement(document.getElementById('app'));
   }
   componentDidMount(){
-    var id = window.location.href.split('2002/')[1];
+    var id = window.location.href.split('restaurants/')[1];
     //ajax request for getting the photos and name of restaurant 
     this.getRequestWithId(id); 
   }
 
   getRequestWithId(id){
     var appContext = this;
-    $.ajax({url: `/${id}/gallery`, 
+    $.ajax({url: `/api/restaurants/${id}/gallery`, 
             method: "GET", 
             success: function(data){
               appContext.setState({images: data.photoArray, restaurantName: data.restaurantName, place_id:data.place_id});

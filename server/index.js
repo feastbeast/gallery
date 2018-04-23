@@ -13,14 +13,14 @@ const PORT = 2002;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use('/restaurants/', express.static(__dirname + '/../client/dist'));
 
-app.get('/:id', function(req , res){
+app.get('/restaurants/:id', function(req , res){
  res.sendFile(path.join(__dirname + '/../client/dist/index.html'));
 })
 
-app.get('/:id/gallery', function(req , res){
-  console.log(req);
+app.get('/api/restaurants/:id/gallery', function(req , res){
+
   
   var query = list.findOne({"place_id": req.params.id});
   
