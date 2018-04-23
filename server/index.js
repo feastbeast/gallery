@@ -20,6 +20,7 @@ app.get('/:id', function(req , res){
 })
 
 app.get('/:id/gallery', function(req , res){
+  console.log(req);
   
   var query = list.findOne({"place_id": req.params.id});
   
