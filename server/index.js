@@ -16,6 +16,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/:id', function(req , res){
+ res.sendFile(path.join(__dirname + '/../client/dist/index.html'));
+})
+
+app.get('/:id/gallery', function(req , res){
   
   var query = list.findOne({"place_id": req.params.id});
   //query.select("photos");
@@ -38,7 +42,8 @@ app.get('/:id', function(req , res){
           restaurantPhotosArray.push(s3String); 
   		}
       
-  		res.send({photoArray: restaurantPhotosArray, restaurantName: photos.name});
+  		res.send({photoArray: restaurantPhotosArray, restaurantName: photos.name, place_id: photos.place_id});
+      
   	}
   })
   // //find().skip(1).limit(2).pretty();

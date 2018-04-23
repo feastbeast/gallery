@@ -25,7 +25,8 @@ class ApateezGallery extends React.Component {
       isOpen:false,
       images: [],
       restaurantName:"",
-      fullGalleryGrid :false 
+      fullGalleryGrid :false,
+      place_id: "ChIJFUBxSY6AhYARwOaLV7TsLjw"
     };
     this.getRequestWithId = this.getRequestWithId.bind(this);
     this.clickHandle = this.clickHandle.bind(this);
@@ -36,16 +37,17 @@ class ApateezGallery extends React.Component {
     Modal.setAppElement(document.getElementById('app'));
   }
   componentDidMount(){
+    var id = window.location.href.split('3000/')[1];
     //ajax request for getting the photos and name of restaurant 
-    this.getRequestWithId("ChIJFUBxSY6AhYARwOaLV7TsLjw"); 
+    this.getRequestWithId(id); 
   }
 
   getRequestWithId(id){
     var appContext = this;
-    $.ajax({url: "/"+ id, 
+    $.ajax({url: `/${id}/gallery`, 
             method: "GET", 
             success: function(data){
-              appContext.setState({images: data.photoArray, restaurantName: data.restaurantName});
+              appContext.setState({images: data.photoArray, restaurantName: data.restaurantName, place_id:data.place_id});
             }
     });
   }
@@ -81,7 +83,8 @@ class ApateezGallery extends React.Component {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    backgroundColor: 'rgba(16,24,32,.95)'
+                    backgroundColor: 'rgba(16,24,32,.95)',
+                    zIndex: 3
                   },
                   content: {
                     position: 'absolute',
@@ -96,7 +99,8 @@ class ApateezGallery extends React.Component {
                     borderRadius: '4px',
                     outline: 'none',
                     padding: '0px',
-                    backgroundColor: 'rgba(28, 22, 22, 0.29)'
+                    backgroundColor: 'rgba(28, 22, 22, 0.29)',
+                    zIndex:3
 
                   }
                   

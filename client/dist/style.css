@@ -1,6 +1,7 @@
 body{
 	margin: 0;
 	font-family: 'Source Sans Pro', sans-serif;
+	
 }
 .header{
 	display: grid;
@@ -103,11 +104,12 @@ input.input{
   text-decoration: none;
 }
 
+
 .dropdown-content li {
 	margin-top: 20px;
+    font-size: 20px;
+    color: white;
     
-    color: rgb(212, 241, 235);
-    cursor: pointer;
     min-height: 50px;
     line-height: 1.5rem;
     width: 100%;
@@ -117,9 +119,12 @@ input.input{
     border-right: 1px solid #656666;
     box-sizing: border-box;
     min-height: 80px;
-    position: relative;
-    
-   
+    position: relative; 
+}
+#dropdown_0 li:hover {
+	background-color: #1c252c; 
+	cursor: pointer;
+	font-size: 22px;
 }
 i.medium {
     font-size: 1.5rem;
