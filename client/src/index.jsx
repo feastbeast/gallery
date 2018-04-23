@@ -37,7 +37,7 @@ class ApateezGallery extends React.Component {
     Modal.setAppElement(document.getElementById('app'));
   }
   componentDidMount(){
-    var id = window.location.href.split('3000/')[1];
+    var id = window.location.href.split('2002/')[1];
     //ajax request for getting the photos and name of restaurant 
     this.getRequestWithId(id); 
   }
