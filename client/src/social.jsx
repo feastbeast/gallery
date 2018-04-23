@@ -43,7 +43,7 @@ class BigDiv extends React.Component {
          <i className="medium fab fa-pinterest"></i> 
          <i className="medium fab fa-google-plus"></i>
          <i className="medium fas fa-envelope"></i>
-         <i className="medium far fa-times-circle" onClick = {this.props.changeView}></i>   
+         <i className="medium fas fa-times" onClick = {this.props.changeView}></i>   
       </div>
       )
   }
