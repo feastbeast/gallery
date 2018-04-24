@@ -25,9 +25,6 @@ class Social extends React.Component {
       <SmallDiv changeView = {this.changeView}/>
       )
     }
-    
-    
-
   }
 }   
 
@@ -39,13 +36,23 @@ class BigDiv extends React.Component {
     return(
       
       <div className = "social">
-         <i className="floating medium fab fa-twitter"></i>
-         <i className="medium fab fa-pinterest"></i> 
-         <i className="medium fab fa-google-plus"></i>
-         <i className="medium fas fa-envelope"></i>
-         <i className="medium fas fa-times" onClick = {this.props.changeView}></i>   
+        <span className = "iconsCenter">
+           <i className="floating medium fab fa-twitter"></i>
+         </span>
+         <span className = "iconsCenter">
+           <i className="medium fab fa-pinterest"></i> 
+         </span>
+         <span className = "iconsCenter">
+           <i className="medium fab fa-google-plus"></i>
+         </span>
+         <span className = "iconsCenter">
+           <i className="medium fas fa-envelope"></i>
+         </span>
+         <span className = "iconsCenter">
+           <i className="medium fas fa-times" onClick = {this.props.changeView}></i>   
+         </span>
       </div>
-      )
+    )
   }
 }  
 class SmallDiv extends React.Component {
@@ -56,12 +63,20 @@ class SmallDiv extends React.Component {
     return(
       
       <div className = "smallsocial">
-         <i className="floating medium fab fa-twitter"></i>
-         <i className="medium fab fa-pinterest"></i> 
-         <i className="medium fas fa-envelope"></i>
-         <i className="medium fas fa-ellipsis-h" onClick = {this.props.changeView}></i>   
+         <span className = "iconsCenter">
+           <i className="floating medium fab fa-twitter"></i>
+         </span>
+         <span className = "iconsCenter">
+           <i className="medium fab fa-pinterest"></i> 
+         </span>
+         <span className = "iconsCenter">
+           <i className="medium fas fa-envelope"></i>
+         </span>
+         <span className = "iconsCenter">
+           <i className="medium fas fa-ellipsis-h" onClick = {this.props.changeView}></i>  
+         </span> 
       </div>
-      )
+    )
   }
 }   
 

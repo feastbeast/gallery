@@ -12,8 +12,7 @@ body{
 	text-align: center;
 	padding-top: 20%;
 }
-.hoverred{
-    	
+.hoverred{	
 	color:#656666;	
 }
 .hoverred:hover{
@@ -60,39 +59,28 @@ input.input{
 .social{
 	top:430px;
 	right: 0px;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
-    justify-content: center;
-    align-self: right;
+	display: flex;
 	background: #101820;
 	position: absolute;
 	height: 60px;
 	width: 390px;
-	z-index: 1;
-	padding: 1%;
-	 
+	z-index: 1;	 
 }
 .smallsocial{
 	top:430px;
 	right: 0px;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-content: flex-end;
-    align-self: right;
+	display: flex;
 	background: #101820;
 	position: absolute;
 	height: 60px;
 	width: 250px;
 	z-index: 1;
-	padding: 1%;
-
 }
 .dropdown-content {
   background-color: #1c252c;
   
   opacity: .7;	
   margin-top: 80px;
-
   min-width: 300px; /* Changed this to accomodate content width */
   max-height: auto;
   margin-left: -1px; /* Add this to keep dropdown in line with edge of navbar */
@@ -136,6 +124,7 @@ i.medium {
     height: 40px;
     width: 40px;
     padding-left: 8px;
+    vertical-align: middle;
     
 }
 .fa-twitter{
@@ -144,6 +133,7 @@ i.medium {
  border: 1x solid grey;
  padding:10px;
  size: 10px;
+ line-height: .8;
 }
 .fa-pinterest{
 	background-color: white;
@@ -151,6 +141,7 @@ i.medium {
  border: 1x solid grey;
  padding:10px;
  size: 10px;
+ line-height: .8;
 }
 .fa-google-plus{
 	background-color: white;
@@ -158,6 +149,7 @@ i.medium {
  border: 1x solid grey;
  padding:10px;
  size: 10px;
+ line-height: .8;
 }
 .fa-envelope{
 	background-color: white;
@@ -165,6 +157,7 @@ i.medium {
  border: 1x solid grey;
  padding:10px;
  size: 10px;
+ line-height: .8;
 }
 .fa-ellipsis-h{
 	background-color: white;
@@ -172,6 +165,7 @@ i.medium {
  border: 1x solid grey;
  padding:10px;
  size: 10px;
+ line-height: .8;
 }
 .fa-times{
 	background-color: white;
@@ -179,10 +173,29 @@ i.medium {
  border: 1x solid grey;
  padding:10px;
  size: 10px;
+ line-height: .8;
 }
 
 .fa-twitter:hover{
-   background: blue;
+   background: #4AB3F4;
+}
+.fa-times:hover{
+   background: #bd081c;
+}
+.fa-ellipsis-h:hover{
+   background: #bd081c;
+}
+.fa-envelope:hover{
+   background: #bd081c;
+}
+.fa-pinterest:hover{
+   background: #bd081c;
+}
+.fa-google-plus:hover{
+   background: #bd081c;
+}
+.iconsCenter{
+	align-self: center;
 }
 
 

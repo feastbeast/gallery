@@ -52,9 +52,7 @@ app.get('/api/restaurants/:id/gallery', function(req , res){
   })
 
 });
-  app.get('/:searchValue', function(req , res){
-
- 
+app.get('/:searchValue', function(req , res){
   var query = list.findOne({"name": { "$regex": req.params.searchValue, "$options": "i" }});
   
   query.exec(function(err, photos){
@@ -65,73 +63,11 @@ app.get('/api/restaurants/:id/gallery', function(req , res){
       if(photos){
         res.send({place_id: photos.place_id});
       }
-
     }
   })
-  // //find().skip(1).limit(2).pretty();
-   // list.find().limit(100).find(function(err, data){
-   //    res.send(data);
-   // });
-  // var j =1;
-  // list.find(function(err, data){
-  //    if (err){
-  //     console.log(err);
-  //    } else{
-
-  //    	data.map(function(restaurant){
-
-  //    		restaurant.photos.map(function(photo){
-  //              //photo_reference = photo.photo_reference;
-  //              requestImg.get
-	 //                 ("https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photo.photo_reference+"&key=AIzaSyD7olNRQRLF6mNFwI0dyEyECWNqF8xXNZQ", function(error, response, body){
-		//          if (error){
-		// 	       console.log(error)
-            
-		//          }else{
-		//          console.log("writeFile---" + photo.photo_reference);	
-		// 	       fs.writeFile(__dirname+'/n/'+ photo.photo_reference+'.png', body, function(){console.log(j++)} );
-		//          }
-	 //           })
-  //          })
-
-  //    	})  
-  //   }
-     
-  // })
-
-    // res.end();
-
-      // list.find(function(err, data){
- //     if (err){
- //     	console.log(err);
- //     } else{
- //     	for (var i = 0; i < data.length; i++){
- //     		id = data[i].place_id;
- //     		fs.mkdirSync(path.join(__dirname+'/photos', id))
-
- //     	}
- //     	res.end();
- //     }
- //  })
-
 });
 
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
-
-
-
- // list.find(function(err, data){
- //     if (err){
- //     	console.log(err);
- //     } else{
- //     	for (var i = 0; i < data.length; i++){
- //     		id = data[i].place_id;
- //     		fs.mkdirSync(path.join(__dirname+'/photos', id))
-
- //     	}
- //     	res.end();
- //     }
- //  })
