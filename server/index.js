@@ -53,18 +53,25 @@ app.get('/api/restaurants/:id/gallery', function(req , res){
 
 });
 app.get('/:searchValue', function(req , res){
-  var query = list.findOne({"name": { "$regex": req.params.searchValue, "$options": "i" }});
-  
-  query.exec(function(err, photos){
+  var searchQuery = req.params.searchValue;
+  var recursefindPlaceId = function(searchQuery){
+    var query = list.findOne({"name": { "$regex": searchQuery, "$options": "i" }});
+    query.exec(function(err, photos){
 
     if(err){
       console.log(err);
     } else{
       if(photos){
         res.send({place_id: photos.place_id});
+      } else{
+        searchQuery = searchQuery.slice(0, -1)
+        recursefindPlaceId(searchQuery);
       }
     }
-  })
+  }) 
+  }
+  recursefindPlaceId(searchQuery);
+  
 });
 
 
