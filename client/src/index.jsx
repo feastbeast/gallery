@@ -43,7 +43,12 @@ class ApateezGallery extends React.Component {
     //ajax request for getting the photos and name of restaurant 
     this.getRequestWithId(id); 
   }
-  
+  gotoHotNew(){
+    location.href = '/restaurants/' + 'ChIJA8_SN2eAhYARCIvEx44Zvfw' ;
+  }
+  gotoCitysBest(){
+     location.href = '/restaurants/' + 'ChIJUUjhfoaAhYARRuSNp1R18vs';
+  }
   searchRestaurant(searchValue){
   
     $.ajax({url: "/"+searchValue, 
