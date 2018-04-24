@@ -6,7 +6,8 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon --inspect server/index.js",
-    "test": "jest"
+    "test": "jest",
+    "seed":"node database/seed.js"
   },
   "author": "Yogita",
   "license": "ISC",

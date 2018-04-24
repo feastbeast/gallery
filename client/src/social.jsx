@@ -18,11 +18,11 @@ class Social extends React.Component {
   render() {
     if(this.state.view){
       return (
-      <BigDiv changeView = {this.changeView}/>
+      <SmallDiv changeView = {this.changeView}/>
       )
     }else{
       return (
-      <SmallDiv changeView = {this.changeView}/>
+      <BigDiv changeView = {this.changeView}/>
       )
     }
   }
@@ -77,7 +77,7 @@ class SmallDiv extends React.Component {
          <span className = "iconsCenter">
            <i className="medium fas fa-ellipsis-h" onClick = {this.props.changeView}></i>  
          </span> 
-         
+
       </div>
     )
   }
