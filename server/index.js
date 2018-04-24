@@ -68,10 +68,9 @@ app.get('/:searchValue', function(req , res){
         recursefindPlaceId(searchQuery);
       }
     }
-  }) 
+    }) 
   }
   recursefindPlaceId(searchQuery);
-  
 });
 
 

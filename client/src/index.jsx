@@ -10,14 +10,6 @@ import Header from './Header.jsx';
 import Social from './social.jsx';
 import '../dist/style.css';
 
-   
-//we also need to make the opening view of the gallery that takes first 6 photos
-
-	//takes the id and makes ajax get request to the server 
-	//to get the file that contains all the images 
-	//corresponding to a particular restaurant
-	//once we get the file from the server, we give it to client
-	//to render it to the app.
 class ApateezGallery extends React.Component {
   constructor(props){
     super(props);
@@ -51,7 +43,7 @@ class ApateezGallery extends React.Component {
   }
   searchRestaurant(searchValue){
   
-    $.ajax({url: "/"+searchValue, 
+    $.ajax({url: "http://localhost:2002/"+searchValue, 
             method: "GET", 
             success: function(data){
               location.href = '/restaurants/' + data.place_id;
@@ -88,9 +80,9 @@ class ApateezGallery extends React.Component {
      const { photoIndex, isOpen, images, fullGalleryGrid, restaurantName } = this.state;
          return (
       <div>
-      <Social/>
+       <Social/>
 
-       <Header searchRestaurant = {this.searchRestaurant} gotoHotNew = {this.gotoHotNew} gotoCitysBest = {this.gotoCitysBest}/>
+        <Header searchRestaurant = {this.searchRestaurant} gotoHotNew = {this.gotoHotNew} gotoCitysBest = {this.gotoCitysBest}/>
 
             <div>
               <Modal isOpen={fullGalleryGrid}
@@ -153,20 +145,11 @@ class ApateezGallery extends React.Component {
               })
             }
           />
-
           </div>
         )}
-       
-
       </div>
     );
   }
 } 
 	
 ReactDOM.render(< ApateezGallery/>, document.getElementById('app'));
-
-
-     //  <i className=" cancel medium material-icons ">cancel</i>
-     // <i className=" apps medium material-icons right-align">apps</i>
-     //<FullGalleryOpenGrid images = {images} clickHandle = {this.clickHandle}/>
-

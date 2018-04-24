@@ -56,6 +56,14 @@ input.input{
 	height: 19px;
 	border-bottom:1px solid #d0d2d3;
 }
+input:focus + label {
+   color: #d0d2d3 !important;
+ }
+ /* label underline focus color */
+ input:focus {
+   border-bottom: 1px solid #d0d2d3 !important;
+   box-shadow: 0 1px 0 0 #d0d2d3 !important
+ }
 .social{
 	top:430px;
 	right: 0px;

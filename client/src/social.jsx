@@ -36,6 +36,7 @@ class BigDiv extends React.Component {
     return(
       
       <div className = "social">
+
         <span className = "iconsCenter">
            <i className="medium fas fa-envelope"></i>
          </span>
@@ -48,10 +49,10 @@ class BigDiv extends React.Component {
          <span className = "iconsCenter">
            <i className="medium fab fa-facebook-f"></i>
          </span>
-         
          <span className = "iconsCenter">
            <i className="medium fas fa-times" onClick = {this.props.changeView}></i>   
          </span>
+
       </div>
     )
   }
@@ -76,6 +77,7 @@ class SmallDiv extends React.Component {
          <span className = "iconsCenter">
            <i className="medium fas fa-ellipsis-h" onClick = {this.props.changeView}></i>  
          </span> 
+         
       </div>
     )
   }
