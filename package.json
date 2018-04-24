@@ -6,7 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon --inspect server/index.js",
-    "test": "jest",
+    "test": "jest --watch --coverage",
     "seed":"node database/seed.js"
   },
   "author": "Yogita",
@@ -22,7 +22,8 @@
     "jest": "^22.4.3",
     "jest-enzyme": "^6.0.0",
     "style-loader": "^0.21.0",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.5",

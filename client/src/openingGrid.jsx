@@ -55,7 +55,7 @@ class NumBox extends React.Component{
   
   render(){
     return(
-      <div height = "40px" width = "123px" className = "numBox" onClick = {this.props.clickView} ><span>{this.props.imageslength + "  PHOTOS"}<span className = "plus">+</span></span></div>
+      <div height = "40px" width = "123px" className = "numBox" onClick = {this.props.clickView} ><span className = "widthNumBox">{this.props.imageslength + "  PHOTOS"}<span className = "plus">+</span></span></div>
     )
   }
 }
