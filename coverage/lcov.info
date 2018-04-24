@@ -5,11 +5,11 @@ FN:10,(anonymous_1)
 FN:19,(anonymous_2)
 FNF:3
 FNH:2
-FNDA:6,(anonymous_0)
-FNDA:6,(anonymous_1)
+FNDA:2,(anonymous_0)
+FNDA:2,(anonymous_1)
 FNDA:0,(anonymous_2)
-DA:8,6
-DA:12,6
+DA:8,2
+DA:12,2
 DA:19,0
 LF:3
 LH:2
