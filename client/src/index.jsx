@@ -32,6 +32,7 @@ class ApateezGallery extends React.Component {
     this.clickHandle = this.clickHandle.bind(this);
     this.clickView = this.clickView.bind(this);
     this.clickHandleView = this.clickHandleView.bind(this);
+    this.searchRestaurant = this.searchRestaurant.bind(this);
   }
   componentWillMount(){
     Modal.setAppElement(document.getElementById('app'));
@@ -40,6 +41,16 @@ class ApateezGallery extends React.Component {
     var id = window.location.href.split('restaurants/')[1];
     //ajax request for getting the photos and name of restaurant 
     this.getRequestWithId(id); 
+  }
+  searchRestaurant(searchValue){
+  
+    $.ajax({url: "/"+searchValue, 
+            method: "GET", 
+            success: function(data){
+              location.href = '/restaurants/' + data.place_id;
+              console.log(data.place_id);
+            }
+    });
   }
 
   getRequestWithId(id){
@@ -72,7 +83,7 @@ class ApateezGallery extends React.Component {
       <div>
       <Social/>
 
-       <Header/>
+       <Header searchRestaurant = {this.searchRestaurant}/>
 
             <div>
               <Modal isOpen={fullGalleryGrid}

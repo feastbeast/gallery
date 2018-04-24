@@ -16,7 +16,7 @@ class Header extends React.Component {
          <div className = "searchbox">
             <label>
             <i className=" searchIcon small material-icons">search</i> 
-              <input placeholder = "Find a great place near you"className = "input" type="text" />
+              <input placeholder = "Find a great place near you"className = "input" type="text" onKeyPress = {(event)=>{if (event.key === 'Enter') {this.props.searchRestaurant(event.target.value)}} }/>
             </label>
          </div>
          
