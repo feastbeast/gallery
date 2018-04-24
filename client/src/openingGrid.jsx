@@ -36,8 +36,10 @@ class OpeningPageGalleryView extends React.Component {
           <div className = "verticalCol"> 
             <img src = {this.props.images[5]} className= "smallThumbnail" onClick = {()=>this.props.clickHandle(5)}></img>
           </div>  
-
-        </div>  
+        </div> 
+        <div className = "horizontalGrid">
+          <img src = {this.props.images[6]} className= "bigThumbnail" onClick = {()=>this.props.clickHandle(6)}></img>
+        </div> 
           <NumBox imageslength = {this.props.images.length} clickView = {this.props.clickView}/>
 
       </div>

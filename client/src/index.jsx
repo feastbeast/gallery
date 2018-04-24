@@ -8,6 +8,7 @@ import OpeningPageGalleryView from './openingGrid.jsx';
 import FullGalleryOpenGrid from './fullGalleryOpenGrid.jsx';
 import Header from './Header.jsx';
 import Social from './social.jsx';
+import '../dist/style.css';
 
    
 //we also need to make the opening view of the gallery that takes first 6 photos
