@@ -44,7 +44,6 @@ class OpeningPageGalleryView extends React.Component {
 
       </div>
     )
-
   }
 }   
 
