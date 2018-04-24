@@ -73,6 +73,7 @@ input:focus + label {
 	height: 60px;
 	width: 390px;
 	z-index: 1;	 
+
 }
 .smallsocial{
 	top:430px;
@@ -84,6 +85,7 @@ input:focus + label {
 	width: 250px;
 	z-index: 1;
 }
+
 .dropdown-content {
   background-color: #1c252c;
   
@@ -204,6 +206,7 @@ i.medium {
 }
 .iconsCenter{
 	align-self: center;
+	margin:auto;
 }
 
 .openGrid{
