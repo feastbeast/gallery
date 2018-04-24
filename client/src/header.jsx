@@ -21,10 +21,10 @@ class Header extends React.Component {
          </div>
          
          <div>
-           <div className = "rightside"><span className = "hoverred">NEW & HOT</span></div>
+           <div className = "rightside"><span className = "hoverred" onClick = {this.props.gotoHotNew}>NEW & HOT</span></div>
          </div> 
          <div>
-           <div className = "rightside"><span className = "hoverred">CITY'S BEST</span></div>
+           <div className = "rightside"><span className = "hoverred" onClick = {this.props.gotoCitysBest}>CITY'S BEST</span></div>
          </div> 
          <div ><Dropdown style = {{height:'100px'}}
          trigger={

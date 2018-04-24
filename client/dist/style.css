@@ -143,7 +143,7 @@ i.medium {
  size: 10px;
  line-height: .8;
 }
-.fa-google-plus{
+.fa-facebook-f{
 	background-color: white;
  border-radius: 50%;
  border: 1x solid grey;
@@ -180,24 +180,23 @@ i.medium {
    background: #4AB3F4;
 }
 .fa-times:hover{
-   background: #bd081c;
+   background: #b22222;
 }
 .fa-ellipsis-h:hover{
-   background: #bd081c;
+   background: #b70038;
 }
 .fa-envelope:hover{
-   background: #bd081c;
+   background: #b22222;
 }
 .fa-pinterest:hover{
    background: #bd081c;
 }
-.fa-google-plus:hover{
-   background: #bd081c;
+.fa-facebook-f:hover{
+   background: #365899;
 }
 .iconsCenter{
 	align-self: center;
 }
-
 
 .openGrid{
 	display: grid;

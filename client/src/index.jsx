@@ -43,6 +43,7 @@ class ApateezGallery extends React.Component {
     //ajax request for getting the photos and name of restaurant 
     this.getRequestWithId(id); 
   }
+  
   searchRestaurant(searchValue){
   
     $.ajax({url: "/"+searchValue, 
@@ -84,7 +85,7 @@ class ApateezGallery extends React.Component {
       <div>
       <Social/>
 
-       <Header searchRestaurant = {this.searchRestaurant}/>
+       <Header searchRestaurant = {this.searchRestaurant} gotoHotNew = {this.gotoHotNew} gotoCitysBest = {this.gotoCitysBest}/>
 
             <div>
               <Modal isOpen={fullGalleryGrid}

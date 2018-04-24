@@ -37,17 +37,18 @@ class BigDiv extends React.Component {
       
       <div className = "social">
         <span className = "iconsCenter">
+           <i className="medium fas fa-envelope"></i>
+         </span>
+        <span className = "iconsCenter">
            <i className="floating medium fab fa-twitter"></i>
          </span>
          <span className = "iconsCenter">
            <i className="medium fab fa-pinterest"></i> 
          </span>
          <span className = "iconsCenter">
-           <i className="medium fab fa-google-plus"></i>
+           <i className="medium fab fa-facebook-f"></i>
          </span>
-         <span className = "iconsCenter">
-           <i className="medium fas fa-envelope"></i>
-         </span>
+         
          <span className = "iconsCenter">
            <i className="medium fas fa-times" onClick = {this.props.changeView}></i>   
          </span>
