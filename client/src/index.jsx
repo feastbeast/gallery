@@ -6,7 +6,7 @@ import {Button, Icon} from 'react-materialize';
 import Modal from 'react-modal';
 import OpeningPageGalleryView from './openingGrid.jsx';
 import FullGalleryOpenGrid from './fullGalleryOpenGrid.jsx';
-import Header from './Header.jsx';
+import Header from './header.jsx';
 import Social from './social.jsx';
 import '../dist/style.css';
 
@@ -31,15 +31,16 @@ class ApateezGallery extends React.Component {
     Modal.setAppElement(document.getElementById('app'));
   }
   componentDidMount(){
-    var id = window.location.href.split('restaurants/')[1].slice(0,-1);
+    var id = window.location.href.split('/')[4];
     //ajax request for getting the photos and name of restaurant 
+    window.location.href.split('/')[4]
     this.getRequestWithId(id); 
   }
   gotoHotNew(){
     location.href = '/restaurants/' + 'ChIJA8_SN2eAhYARCIvEx44Zvfw' ;
   }
   gotoCitysBest(){
-     location.href = '/restaurants/' + 'ChIJUUjhfoaAhYARRuSNp1R18vs';
+    location.href = '/restaurants/' + 'ChIJUUjhfoaAhYARRuSNp1R18vs';
   }
   searchRestaurant(searchValue){
   

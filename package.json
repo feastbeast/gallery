@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
+    "build:prod": "webpack -p",
     "server-dev": "nodemon --inspect server/index.js",
+    "start" : "node server/index.js",
     "test": "jest --watch --coverage",
-    "seed": "node database/seed.js"
+    "seed": "node database/seed.js",
+    "docker":"npm run build:prod && npm run seed & npm run start"
   },
   "author": "Yogita",
   "license": "ISC",
