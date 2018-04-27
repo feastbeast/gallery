@@ -44,7 +44,7 @@ class ApateezGallery extends React.Component {
   }
   searchRestaurant(searchValue){
   
-    $.ajax({url: "http://54.153.55.71:3002/"+searchValue, 
+    $.ajax({url: BASE_URL+searchValue, 
             method: "GET", 
             success: function(data){
               location.href = '/restaurants/' + data.place_id;
@@ -55,7 +55,7 @@ class ApateezGallery extends React.Component {
 
   getRequestWithId(id){
     var appContext = this;
-    $.ajax({url: `http://54.153.55.71:3002/api/restaurants/${id}/gallery`, 
+    $.ajax({url: `${BASE_URL}/api/restaurants/${id}/gallery`, 
             method: "GET", 
             success: function(data){
               appContext.setState({images: data.photoArray, restaurantName: data.restaurantName, place_id:data.place_id});
