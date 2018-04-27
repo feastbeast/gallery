@@ -8,6 +8,6 @@ COPY . /app
 
 RUN npm install
 
-EXPOSE 2002
+EXPOSE 3002	
 
 CMD [ "npm", "run", "docker" ]
