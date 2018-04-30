@@ -13,11 +13,12 @@ class FullGalleryOpenGrid extends React.Component {
   constructor(props) {
     super(props);
   }
+  
   render() {
     return (
       <div className = "FullOpenGrid Modal">
          	
-         {this.props.images.map((image, index)=><EachImage image = {image} index = {index} clickHandle = {this.props.clickHandle}/>)} 
+        {this.props.images.map((image, index)=><EachImage image = {image} index = {index} clickHandle = {this.props.clickHandle}/>)} 
       </div>
     )
 

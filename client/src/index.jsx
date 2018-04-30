@@ -11,7 +11,7 @@ import Social from './social.jsx';
 import '../dist/style.css';
 
 class ApateezGallery extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       photoIndex:0,
@@ -27,22 +27,26 @@ class ApateezGallery extends React.Component {
     this.clickHandleView = this.clickHandleView.bind(this);
     this.searchRestaurant = this.searchRestaurant.bind(this);
   }
-  componentWillMount(){
+
+  componentWillMount() {
     Modal.setAppElement(document.getElementById('app'));
   }
-  componentDidMount(){
+
+  componentDidMount() { //invoking ajax get request on page load
     var id = window.location.href.split('/')[4];
-    //ajax request for getting the photos and name of restaurant 
     window.location.href.split('/')[4]
     this.getRequestWithId(id); 
   }
-  gotoHotNew(){
+
+  gotoHotNew() { //Hot and New tab functionality in header
     location.href = '/restaurants/' + 'ChIJA8_SN2eAhYARCIvEx44Zvfw' ;
   }
-  gotoCitysBest(){
+
+  gotoCitysBest() { //City's best tab functionality in header
     location.href = '/restaurants/' + 'ChIJUUjhfoaAhYARRuSNp1R18vs';
   }
-  searchRestaurant(searchValue){
+
+  searchRestaurant(searchValue) { //search functionality in header
   
     $.ajax({url: BASE_URL+searchValue, 
             method: "GET", 
@@ -53,33 +57,32 @@ class ApateezGallery extends React.Component {
     });
   }
 
-  getRequestWithId(id){
+  getRequestWithId(id) { //defining ajax get request to server to get restaurant iamges and name
     var appContext = this;
     $.ajax({url: `${BASE_URL}/api/restaurants/${id}/gallery`, 
             method: "GET", 
-            success: function(data){
+            success: function(data) {
               appContext.setState({images: data.photoArray, restaurantName: data.restaurantName, place_id:data.place_id});
             }
     });
   }
-  clickHandle(clickedIndex){
 
-    this.setState({ isOpen: true, photoIndex: clickedIndex });
-    
-  }
-  clickHandleView(){
-
-    this.setState({ isOpen: false, fullGalleryGrid:true});
-    
+  clickHandle(clickedIndex) { //opening and closing light box gallery- single image view
+    this.setState({ isOpen: true, photoIndex: clickedIndex });  
   }
 
-  clickView(){
+  clickHandleView() { //opening and closing full gallery grid view
+    this.setState({ isOpen: false, fullGalleryGrid:true});  
+  }
+
+  clickView() { //opening and closing full gallery grid view
     this.setState({fullGalleryGrid: !this.state.fullGalleryGrid});
   }
-  render(){
+
+  render() {
     
-     const { photoIndex, isOpen, images, fullGalleryGrid, restaurantName } = this.state;
-         return (
+     const {photoIndex, isOpen, images, fullGalleryGrid, restaurantName} = this.state;
+     return (
       <div>
        <Social/>
 
@@ -117,7 +120,7 @@ class ApateezGallery extends React.Component {
                   
                 }}
               >
-                <div className = "restaurantName">{restaurantName.toUpperCase()}</div>
+                <div className = "restaurantName"> {restaurantName.toUpperCase()} </div>
                 <FullGalleryOpenGrid images = {images} clickHandle = {this.clickHandle}/>
                 <i className=" cancel small material-icons " onClick = {this.clickView}>cancel</i>
               </Modal>
@@ -128,24 +131,25 @@ class ApateezGallery extends React.Component {
         {isOpen && (
           <div>
 
-          <Lightbox
-            enableZoom= {false}
-            toolbarButtons={ [ <span className = "restaurantN">{restaurantName.toUpperCase()}</span>, <span className = "photoNum">{(photoIndex+1)+ " of "+ images.length}</span>, <i onClick = {this.clickHandleView } className="ril__toolbarItem apps small material-icons">apps</i>] }
-            mainSrc={images[photoIndex]}
-            nextSrc={images[(photoIndex + 1) % images.length]}
-            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-            onCloseRequest={() => this.setState({ isOpen: false })}
-            onMovePrevRequest={() =>
-              this.setState({
-                photoIndex: (photoIndex + images.length - 1) % images.length,
-              })
-            }
-            onMoveNextRequest={() =>
-              this.setState({
-                photoIndex: (photoIndex + 1) % images.length,
-              })
-            }
-          />
+            <Lightbox
+              enableZoom= {false}
+              toolbarButtons={ [ <span className = "restaurantN">{restaurantName.toUpperCase()}</span>, <span className = "photoNum">{(photoIndex+1)+ " of "+ images.length}</span>, <i onClick = {this.clickHandleView } className="ril__toolbarItem apps small material-icons">apps</i>] }
+              mainSrc={images[photoIndex]}
+              nextSrc={images[(photoIndex + 1) % images.length]}
+              prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+              onCloseRequest={() => this.setState({ isOpen: false })}
+              onMovePrevRequest={() =>
+                this.setState({
+                  photoIndex: (photoIndex + images.length - 1) % images.length,
+                })
+              }
+              onMoveNextRequest={() =>
+                this.setState({
+                  photoIndex: (photoIndex + 1) % images.length,
+                });
+              }
+            />
+
           </div>
         )}
       </div>
