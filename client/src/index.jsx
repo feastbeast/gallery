@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Lightbox from 'react-image-lightbox'
-import $ from 'jquery';
 import {Button, Icon} from 'react-materialize';
 import Modal from 'react-modal';
 import OpeningPageGalleryView from './openingGrid.jsx';
@@ -9,6 +8,7 @@ import FullGalleryOpenGrid from './fullGalleryOpenGrid.jsx';
 import Header from './header.jsx';
 import Social from './social.jsx';
 import '../dist/style.css';
+import axios from 'axios';
 
 class ApateezGallery extends React.Component {
   constructor(props) {
@@ -48,23 +48,27 @@ class ApateezGallery extends React.Component {
 
   searchRestaurant(searchValue) { //search functionality in header
   
-    $.ajax({url: BASE_URL+searchValue, 
-            method: "GET", 
-            success: function(data){
-              location.href = '/restaurants/' + data.place_id;
+    axios.get(BASE_URL+searchValue)
+    .then(({data}) => {
+      location.href = '/restaurants/' + data.place_id;
               console.log(data.place_id);
-            }
-    });
+    })
+    .catch((err) => {
+      console.log('ERROR: ', err)
+    })
   }
 
   getRequestWithId(id) { //defining ajax get request to server to get restaurant iamges and name
     var appContext = this;
-    $.ajax({url: `${BASE_URL}/api/restaurants/${id}/gallery`, 
-            method: "GET", 
-            success: function(data) {
-              appContext.setState({images: data.photoArray, restaurantName: data.restaurantName, place_id:data.place_id});
-            }
-    });
+    axios.get(`${BASE_URL}/api/restaurants/${id}/gallery`)
+    .then(({data}) => {
+      appContext.setState({images: data.photoArray, 
+                     restaurantName: data.restaurantName, 
+                     place_id:data.place_id});
+    })
+    .catch((err) => {
+      console.log('ERROR: ', err)
+    })
   }
 
   clickHandle(clickedIndex) { //opening and closing light box gallery- single image view
@@ -146,7 +150,7 @@ class ApateezGallery extends React.Component {
               onMoveNextRequest={() =>
                 this.setState({
                   photoIndex: (photoIndex + 1) % images.length,
-                });
+                })
               }
             />
 
