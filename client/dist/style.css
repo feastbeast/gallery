@@ -391,4 +391,30 @@ img {
 .restaurantN {
   font-size: 14px;
 }
+/*.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(16,24,32,.95);
+  z-index: 3;
+}*/
+/*.Modal{
+                    position: absolute;
+                    top: 10px;
+                    left: 40px;
+                    right: 40px;
+                    bottom: 40px;
+                    border: 0px solid #ccc;
+                    background: #fff;
+                    overflow: auto;
+                    -webkit-overflow-scrolling:touch;
+                    
+                    border-radius: 4px;
+                    outline: none;
+                    padding: 0px;
+                    background-color: rgba(28, 22, 22, 0.29);
+                    z-index:3;
 
+                  }*/

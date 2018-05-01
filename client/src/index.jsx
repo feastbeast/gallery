@@ -5,13 +5,13 @@ import {Button, Icon} from 'react-materialize';
 import Modal from 'react-modal';
 import OpeningPageGalleryView from './openingGrid.jsx';
 import FullGalleryOpenGrid from './fullGalleryOpenGrid.jsx';
-import Header from './header.jsx';
+import Header from './Header.jsx';
 import Social from './social.jsx';
 import '../dist/style.css';
-import axios from 'axios';
+import axios from 'axios'
 
 class ApateezGallery extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
     this.state = {
       photoIndex:0,
@@ -27,73 +27,64 @@ class ApateezGallery extends React.Component {
     this.clickHandleView = this.clickHandleView.bind(this);
     this.searchRestaurant = this.searchRestaurant.bind(this);
   }
-
-  componentWillMount() {
+  componentWillMount(){
     Modal.setAppElement(document.getElementById('app'));
   }
-
-  componentDidMount() { //invoking ajax get request on page load
-    var id = window.location.href.split('/')[4];
-    window.location.href.split('/')[4]
+  componentDidMount(){
+    var id = window.location.href.split('restaurants/')[1];
+    //ajax request for getting the photos and name of restaurant 
     this.getRequestWithId(id); 
   }
-
-  gotoHotNew() { //Hot and New tab functionality in header
+  gotoHotNew(){
     location.href = '/restaurants/' + 'ChIJA8_SN2eAhYARCIvEx44Zvfw' ;
   }
-
-  gotoCitysBest() { //City's best tab functionality in header
-    location.href = '/restaurants/' + 'ChIJUUjhfoaAhYARRuSNp1R18vs';
+  gotoCitysBest(){
+     location.href = '/restaurants/' + 'ChIJUUjhfoaAhYARRuSNp1R18vs';
+  }
+  searchRestaurant(searchValue){
+    // `${BASE_URL}/${searchValue}`
+    axios.get("http://localhost:3002/"+searchValue)
+    .then(({data}) => { 
+        location.href = '/restaurants/' + data.place_id;
+    })
+    .catch((err) => console.log(err));
   }
 
-  searchRestaurant(searchValue) { //search functionality in header
-  
-    axios.get(BASE_URL+searchValue)
-    .then(({data}) => {
-      location.href = '/restaurants/' + data.place_id;
-              console.log(data.place_id);
-    })
-    .catch((err) => {
-      console.log('ERROR: ', err)
-    })
-  }
-
-  getRequestWithId(id) { //defining ajax get request to server to get restaurant iamges and name
+  getRequestWithId(id){
     var appContext = this;
-    axios.get(`${BASE_URL}/api/restaurants/${id}/gallery`)
-    .then(({data}) => {
-      appContext.setState({images: data.photoArray, 
-                     restaurantName: data.restaurantName, 
-                     place_id:data.place_id});
+    // `${BASE_URL}/api/restaurants/${id}/gallery`
+    axios.get(`http://localhost:3002/api/restaurants/${id}/gallery`)
+    .then(({data}) => { 
+        appContext.setState({images: data.photoArray, restaurantName: data.restaurantName, place_id:data.place_id});
     })
-    .catch((err) => {
-      console.log('ERROR: ', err)
-    })
+    .catch((err) => console.log(err));
   }
 
-  clickHandle(clickedIndex) { //opening and closing light box gallery- single image view
-    this.setState({ isOpen: true, photoIndex: clickedIndex });  
+  clickHandle(clickedIndex){
+
+    this.setState({ isOpen: true, photoIndex: clickedIndex });
+    
+  }
+  clickHandleView(){
+
+    this.setState({ isOpen: false, fullGalleryGrid:true});
+    
   }
 
-  clickHandleView() { //opening and closing full gallery grid view
-    this.setState({ isOpen: false, fullGalleryGrid:true});  
-  }
-
-  clickView() { //opening and closing full gallery grid view
+  clickView(){
     this.setState({fullGalleryGrid: !this.state.fullGalleryGrid});
   }
-
-  render() {
+  render(){
     
-     const {photoIndex, isOpen, images, fullGalleryGrid, restaurantName} = this.state;
-     return (
+     const { photoIndex, isOpen, images, fullGalleryGrid, restaurantName } = this.state;
+         return (
       <div>
        <Social/>
 
         <Header searchRestaurant = {this.searchRestaurant} gotoHotNew = {this.gotoHotNew} gotoCitysBest = {this.gotoCitysBest}/>
 
             <div>
-              <Modal isOpen={fullGalleryGrid}
+              <Modal isOpen={fullGalleryGrid} 
                 style={{
                   overlay: {
                     position: 'fixed',
@@ -124,7 +115,7 @@ class ApateezGallery extends React.Component {
                   
                 }}
               >
-                <div className = "restaurantName"> {restaurantName.toUpperCase()} </div>
+                <div className = "restaurantName">{restaurantName.toUpperCase()}</div>
                 <FullGalleryOpenGrid images = {images} clickHandle = {this.clickHandle}/>
                 <i className=" cancel small material-icons " onClick = {this.clickView}>cancel</i>
               </Modal>
@@ -135,30 +126,29 @@ class ApateezGallery extends React.Component {
         {isOpen && (
           <div>
 
-            <Lightbox
-              enableZoom= {false}
-              toolbarButtons={ [ <span className = "restaurantN">{restaurantName.toUpperCase()}</span>, <span className = "photoNum">{(photoIndex+1)+ " of "+ images.length}</span>, <i onClick = {this.clickHandleView } className="ril__toolbarItem apps small material-icons">apps</i>] }
-              mainSrc={images[photoIndex]}
-              nextSrc={images[(photoIndex + 1) % images.length]}
-              prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-              onCloseRequest={() => this.setState({ isOpen: false })}
-              onMovePrevRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + images.length - 1) % images.length,
-                })
-              }
-              onMoveNextRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + 1) % images.length,
-                })
-              }
-            />
-
+          <Lightbox
+            enableZoom= {false}
+            toolbarButtons={ [ <span className = "restaurantN">{restaurantName.toUpperCase()}</span>, <span className = "photoNum">{(photoIndex+1)+ " of "+ images.length}</span>, <i onClick = {this.clickHandleView } className="ril__toolbarItem apps small material-icons">apps</i>] }
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length,
+              })
+            }
+          />
           </div>
         )}
       </div>
     );
   }
 } 
-	
+  
 ReactDOM.render(< ApateezGallery/>, document.getElementById('app'));

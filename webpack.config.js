@@ -6,7 +6,7 @@ var webpack = require('webpack');
 module.exports = {
   plugins: [
     new webpack.DefinePlugin({
-      BASE_URL: JSON.stringify('http://54.153.55.71:3003')
+      BASE_URL: JSON.stringify('http://54.153.55.71:3002')
     })
   ],
   entry: `${SRC_DIR}/index.jsx`,

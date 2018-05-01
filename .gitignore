@@ -1,3 +1,9 @@
 *.log
 .DS_Store
 node_modules
+
+## JEST ##
+coverage/
+
+## Compiled files ##
+client/dist/bundle.js
