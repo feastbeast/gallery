@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Lightbox from 'react-image-lightbox'
-import {Button, Icon} from 'react-materialize';
+import { Button, Icon } from 'react-materialize';
 import Modal from 'react-modal';
 import OpeningPageGalleryView from './openingGrid.jsx';
 import FullGalleryOpenGrid from './fullGalleryOpenGrid.jsx';
@@ -11,15 +11,15 @@ import '../dist/style.css';
 import axios from 'axios'
 
 class ApateezGallery extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      photoIndex:0,
-      isOpen:false,
+      photoIndex: 0,
+      isOpen: false,
       images: [],
-      restaurantName:"",
-      fullGalleryGrid :false,
-      place_id: "ChIJFUBxSY6AhYARwOaLV7TsLjw"
+      restaurantName: '',
+      fullGalleryGrid: false,
+      place_id: "ChIJFUBxSY6AhYARwOaLV7TsLjw",
     };
     this.getRequestWithId = this.getRequestWithId.bind(this);
     this.clickHandle = this.clickHandle.bind(this);
@@ -27,20 +27,24 @@ class ApateezGallery extends React.Component {
     this.clickHandleView = this.clickHandleView.bind(this);
     this.searchRestaurant = this.searchRestaurant.bind(this);
   }
-  componentWillMount(){
+  componentWillMount() {
     Modal.setAppElement(document.getElementById('app'));
   }
-  componentDidMount(){
-    var id = window.location.href.split('restaurants/')[1];
-    //ajax request for getting the photos and name of restaurant 
-    this.getRequestWithId(id); 
+  componentDidMount() {
+    const id = window.location.href.split('restaurants/')[1];
+    this.getRequestWithId(id);
   }
-  gotoHotNew(){
-    location.href = '/restaurants/' + 'ChIJA8_SN2eAhYARCIvEx44Zvfw' ;
+
+  getRequestWithId(id){
+    const appContext = this;
+    // `${BASE_URL}/api/restaurants/${id}/gallery`
+    axios.get(`http://localhost:3002/api/restaurants/${id}/gallery`)
+    .then(({data}) => { 
+        appContext.setState({images: data.photoArray, restaurantName: data.restaurantName, place_id:data.place_id});
+    })
+    .catch((err) => console.log(err));
   }
-  gotoCitysBest(){
-     location.href = '/restaurants/' + 'ChIJUUjhfoaAhYARRuSNp1R18vs';
-  }
+
   searchRestaurant(searchValue){
     // `${BASE_URL}/${searchValue}`
     axios.get("http://localhost:3002/"+searchValue)
@@ -50,25 +54,18 @@ class ApateezGallery extends React.Component {
     .catch((err) => console.log(err));
   }
 
-  getRequestWithId(id){
-    var appContext = this;
-    // `${BASE_URL}/api/restaurants/${id}/gallery`
-    axios.get(`http://localhost:3002/api/restaurants/${id}/gallery`)
-    .then(({data}) => { 
-        appContext.setState({images: data.photoArray, restaurantName: data.restaurantName, place_id:data.place_id});
-    })
-    .catch((err) => console.log(err));
+  gotoHotNew() {
+    location.href = '/restaurants/' + 'ChIJA8_SN2eAhYARCIvEx44Zvfw' ;
   }
+  gotoCitysBest() {
+    location.href = '/restaurants/' + 'ChIJUUjhfoaAhYARRuSNp1R18vs';
+ }
 
-  clickHandle(clickedIndex){
-
+  clickHandle(clickedIndex) {
     this.setState({ isOpen: true, photoIndex: clickedIndex });
-    
   }
-  clickHandleView(){
-
-    this.setState({ isOpen: false, fullGalleryGrid:true});
-    
+  clickHandleView() {
+    this.setState({ isOpen: false, fullGalleryGrid: true });
   }
 
   clickView(){
