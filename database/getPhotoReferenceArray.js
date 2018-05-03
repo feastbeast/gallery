@@ -2,7 +2,7 @@ const faker = require('faker');
 const fs = require('fs');
 const { getPhotoList } = require('./getPhotoList.js');
 
-const entryNum = 10;
+const entryNum = 10000000;
 
 const getRandomTenPhotoReferences = () => {
   const list = [];
