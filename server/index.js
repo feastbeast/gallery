@@ -26,13 +26,13 @@ app.get('/api/restaurants/:id/gallery', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      var s3String = '//s3-us-west-1.amazonaws.com/apateezgallery93/';
+      var s3String = '//s3-us-west-1.amazonaws.com/apateezgallery100/';
       const restaurantPhotosArray = [];
       if (!photos) { // error handling to avoid server stopping to non-existent place_id
         photos = mockData;
       }
       for (let i = 0; i < photos.photos.length; i++) {
-        var s3String = `//s3-us-west-1.amazonaws.com/apateezgallery93/${photos.photos[i].photo_reference}.png`;
+        var s3String = `//s3-us-west-1.amazonaws.com/apateezgallery100/${photos.photos[i]}.png`;
         restaurantPhotosArray.push(s3String);
       }
       res.send({ photoArray: restaurantPhotosArray, restaurantName: photos.name, place_id: photos.place_id });
