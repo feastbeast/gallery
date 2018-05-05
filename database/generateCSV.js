@@ -47,3 +47,9 @@ const writeData = () => {
   write();
 };
 writeData();
+
+module.exports = {
+  getRandomTenPhotoReferences,
+  createEntry,
+  writeData,
+};
