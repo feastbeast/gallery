@@ -9,5 +9,6 @@ CREATE TABLE lists
 (
   place_id INT NOT NULL,
   name TEXT NOT NULL,
-  photos TEXT[10] NOT NULL
+  photos TEXT[10] NOT NULL,
+  CONSTRAINT place_pk PRIMARY KEY (place_id)
 );

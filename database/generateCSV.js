@@ -2,7 +2,7 @@ const faker = require('faker');
 const fs = require('fs');
 const { getPhotoList } = require('./getPhotoList.js');
 
-const entryNum = 10000000;
+const entryNum = 3000000;
 
 const getRandomTenPhotoReferences = () => {
   const list = [];
@@ -15,7 +15,7 @@ const getRandomTenPhotoReferences = () => {
 
 const createEntry = (index) => {
   let entry = '';
-  const photoReferences = getRandomTenPhotoReferences();
+  const photoReferences = getRandomTenPhotoReferences().toString();
   const str = `{${photoReferences.slice(1, photoReferences.length - 1)}}`;
   entry = `${index}|${faker.lorem.words()}|${str}\n`;
   return entry;
@@ -46,5 +46,4 @@ const writeData = () => {
   };
   write();
 };
-
 writeData();
