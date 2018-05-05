@@ -8,11 +8,11 @@ const options = {
 
 const pgp = require('pg-promise')(options);
 
-const connectionString = 'postgres://localhost:5432/fec';
+const connectionString = 'postgres://localhost:5432/gallery';
 const db = pgp(connectionString);
 
 const getRestaurantInfo = (req, res, next) => {
-  db.any('SELECT * FROM reviews WHERE place_id = $1', req.params.id)
+  db.any('SELECT * FROM lists WHERE place_id = $1', req.params.id)
     .then((data) => {
       res.status(200);
       let s3String = '';
