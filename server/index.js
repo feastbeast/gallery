@@ -1,3 +1,5 @@
+const { getRestaurantInfo } = require('./queries.js');
+
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -6,6 +8,8 @@ const mockData = require('./mockData.js');
 
 const app = express();
 const PORT = 3002;
+const db = require('./queries.js');
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -20,27 +24,28 @@ app.get('/restaurants/:id', (req, res) => {
   res.sendFile(path.join(`${__dirname}/../client/dist/index.html`));
 });
 
-app.get('/api/restaurants/:id/gallery', (req, res) => {
-  const query = list.findOne({ place_id: req.params.id });
-  query.exec((err, photos) => {
-    if (err) {
-      console.log(err);
-    } else {
-      var s3String = '//s3-us-west-1.amazonaws.com/apateezgallery100/';
-      const restaurantPhotosArray = [];
-      if (!photos) { // error handling to avoid server stopping to non-existent place_id
-        photos = mockData;
-      }
-      for (let i = 0; i < photos.photos.length; i++) {
-        var s3String = `//s3-us-west-1.amazonaws.com/apateezgallery100/${photos.photos[i]}.png`;
-        restaurantPhotosArray.push(s3String);
-      }
-      res.send({ photoArray: restaurantPhotosArray, restaurantName: photos.name, place_id: photos.place_id });
-    }
-  });
-});
+// app.get('/api/restaurants/:id/gallery', (req, res) => {
+//   const query = list.findOne({ place_id: req.params.id });
+//   query.exec((err, photos) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       var s3String = '//s3-us-west-1.amazonaws.com/apateezgallery100/';
+//       const restaurantPhotosArray = [];
+//       if (!photos) { // error handling to avoid server stopping to non-existent place_id
+//         photos = mockData;
+//       }
+//       for (let i = 0; i < photos.photos.length; i++) {
+//         var s3String = `//s3-us-west-1.amazonaws.com/apateezgallery100/${photos.photos[i]}.png`;
+//         restaurantPhotosArray.push(s3String);
+//       }
+//       res.send({ photoArray: restaurantPhotosArray, restaurantName: photos.name, place_id: photos.place_id });
+//     }
+//   });
+// });
 
-// search Functionality in header
+app.get('/api/restaurants/:id/gallery', getRestaurantInfo);
+
 app.get('/:searchValue', (req, res) => {
   const searchQuery = req.params.searchValue;
   // recurse the search string and take off last char of the search string at every loop
