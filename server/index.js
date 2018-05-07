@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const list = require('../database/list.js');
-const mockData = require('./mockData.js');
+const { mockData } = require('./mockData.js');
 
 const app = express();
 const PORT = 3002;
@@ -24,29 +24,29 @@ app.get('/restaurants/:id', (req, res) => {
 
 app.get('/api/restaurants/:id/gallery', (req, res) => {
   const query = list.findOne({ place_id: req.params.id });
-  query.exec((err, photos) => {
+  query.exec((err, data) => {
     if (err) {
       throw (err);
     } else {
       let s3String = '//s3-us-west-1.amazonaws.com/apateezgallery100/';
       const restaurantPhotosArray = [];
-      if (!photos) { // error handling to avoid server stopping to non-existent place_id
-        photos = mockData;
-      } else {
-        for (let i = 0; i < photos.photos.length; i += 1) {
-          s3String = `//s3-us-west-1.amazonaws.com/apateezgallery100/${photos.photos[i]}.png`;
-          restaurantPhotosArray.push(s3String);
-        }
-        res.send({
-          photoArray: restaurantPhotosArray,
-          restaurantName: photos.name,
-          place_id: photos.place_id,
-        });
+      if (data === null) {
+        data = mockData;
       }
+      for (let i = 0; i < data.photos.length; i += 1) {
+        s3String = `//s3-us-west-1.amazonaws.com/apateezgallery100/${data.photos[i]}.png`;
+        restaurantPhotosArray.push(s3String);
+      }
+      res.send({
+        photoArray: restaurantPhotosArray,
+        restaurantName: data.name,
+        place_id: data.place_id,
+      });
     }
   });
 });
 
+// Uncomment for postgres
 // app.get('/api/restaurants/:id/gallery', getRestaurantInfo);
 
 app.get('/:searchValue', (req, res) => {

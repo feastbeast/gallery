@@ -18,18 +18,17 @@ const getRestaurantInfo = (req, res, next) => {
       let s3String = '';
       const restaurantPhotosArray = [];
       if (!data[0].photos) {
-        data[0].photos = mockData;
-      } else {
-        for (let i = 0; i < data[0].photos.length; i += 1) {
-          s3String = `//s3-us-west-1.amazonaws.com/apateezgallery100/${data[0].photos[i]}.png`;
-          restaurantPhotosArray.push(s3String);
-        }
-        res.json({
-          photoArray: restaurantPhotosArray,
-          restaurantName: data[0].name,
-          place_id: data[0].place_id,
-        });
+        data[0] = mockData;
       }
+      for (let i = 0; i < data[0].photos.length; i += 1) {
+        s3String = `//s3-us-west-1.amazonaws.com/apateezgallery100/${data[0].photos[i]}.png`;
+        restaurantPhotosArray.push(s3String);
+      }
+      res.json({
+        photoArray: restaurantPhotosArray,
+        restaurantName: data[0].name,
+        place_id: data[0].place_id,
+      });
     })
     .catch(err => next(err));
 };
