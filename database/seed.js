@@ -1,11 +1,11 @@
-const db = require('./index.js');
-const list = require('./list.js');
-const { fakeData } = require('./10MJson.json');
+// const db = require('./index.js');
+// const list = require('./list.js');
+// const { fakeData } = require('./10MJson.json');
 
-const insertfullList = () => {
-  list.create(fakeData)
-    .then(() => db.disconnect());
-};
+// const insertfullList = () => {
+//   list.create(fakeData)
+//     .then(() => db.disconnect());
+// };
 
-insertfullList();
+// insertfullList();
 

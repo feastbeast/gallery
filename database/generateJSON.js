@@ -2,7 +2,7 @@ const faker = require('faker');
 const fs = require('fs');
 const { getPhotoList } = require('./getPhotoList.js');
 
-const entryNum = 7000000;
+const entryNum = 10000000;
 
 const getRandomTenPhotoReferences = () => {
   const list = [];
@@ -28,12 +28,12 @@ const options = {
 
 const writeData = () => {
   const writeStream = fs.createWriteStream('./10MJson.json', options);
-  let i = 3000000;
+  let i = 7000000;
   const write = () => {
     let ok = true;
     do {
       i += 1;
-      if (i === 3000001) {
+      if (i === 7000001) {
         writeStream.write(`[${JSON.stringify(createEntry(i))},`);
       } else if (i === entryNum) {
         writeStream.write(`${JSON.stringify(createEntry(i))}]`);
