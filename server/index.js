@@ -1,5 +1,5 @@
 require('newrelic');
-const { getRestaurantInfo } = require('./queries.js');
+const { getRestaurantInfo, getCache } = require('./queries.js');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -52,7 +52,7 @@ app.get('/restaurants/:id', (req, res) => {
 
 
 // Uncomment for postgres
-app.get('/api/restaurants/:id/gallery', getRestaurantInfo);
+app.get('/api/restaurants/:id/gallery', getCache);
 
 app.get('/:searchValue', (req, res) => {
   let searchQuery = req.params.searchValue;
