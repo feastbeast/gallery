@@ -1,5 +1,5 @@
 require('newrelic');
-const { getRestaurantInfo, getCache } = require('./queries.js');
+const { getCache } = require('./queries.js');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');

@@ -3,6 +3,9 @@ const promise = require('bluebird');
 const redis = require('redis');
 
 const client = redis.createClient();
+const { promisify } = require('util');
+
+const getAsync = promisify(client.get).bind(client);
 
 const mockData = require('./mockData.js');
 
@@ -42,12 +45,10 @@ const getRestaurantInfo = (req, res, next) => {
 
 const getCache = (req, res) => {
   const id = req.params.id;
-  client.get(id, (err, result) => {
+  return getAsync(id).then((result) => {
     if (result) {
-      console.log('cached');
       res.send(result);
     } else {
-      console.log('didn\'t cache');
       getRestaurantInfo(req, res);
     }
   });
