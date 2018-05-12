@@ -1,30 +1,22 @@
 require('newrelic');
-const { getCache, getRestaurantInfo } = require('./queries.js');
+const { getCache } = require('./queries.js');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const list = require('../database/list.js');
-const http = require('http');
 const cluster = require('cluster');
 
 const compression = require('compression');
 
-// http.globalAgent.maxSockets = Infinity;
-// const { mockData } = require('./mockData.js');
-
 if (cluster.isMaster) {
   const numWorkers = require('os').cpus().length;
-
   console.log('Master cluster setting up ' + numWorkers + ' workers...');
-
   for (let i = 0; i < numWorkers; i += 1) {
     cluster.fork();
   }
-
   cluster.on('online', (worker) => {
-      console.log('Worker ' + worker.process.pid + ' is online');
+    console.log('Worker ' + worker.process.pid + ' is online');
   });
-
   cluster.on('exit', (worker, code, signal) => {
     console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
     console.log('Starting a new worker');
