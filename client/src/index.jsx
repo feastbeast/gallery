@@ -29,7 +29,7 @@ class ApateezGallery extends React.Component {
     this.searchRestaurant = this.searchRestaurant.bind(this);
   }
   componentWillMount() {
-    Modal.setAppElement(document.getElementById('app'));
+    Modal.setAppElement(document.getElementById('gallery'));
   }
   componentDidMount() {
     const id = window.location.href.split('restaurants/')[1];
@@ -158,4 +158,4 @@ class ApateezGallery extends React.Component {
   }
 } 
   
-ReactDOM.render(< ApateezGallery/>, document.getElementById('app'));
+ReactDOM.render(< ApateezGallery/>, document.getElementById('gallery'));
