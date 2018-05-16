@@ -8,11 +8,8 @@ import OpeningPageGalleryView from './components/openingGrid.jsx';
 import FullGalleryOpenGrid from './components/fullGalleryOpenGrid.jsx';
 import Header from './components/Header.jsx';
 import Social from './components/social.jsx';
-//import '../dist/style.css';
-//import window from 'global/window';
 
-
-class ApateezGallery extends React.Component {
+class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,36 +26,17 @@ class ApateezGallery extends React.Component {
     this.clickHandleView = this.clickHandleView.bind(this);
     this.searchRestaurant = this.searchRestaurant.bind(this);
   }
-  componentWillMount() {
-    Modal.setAppElement(document.getElementById('gallery'));
-  }
   componentDidMount() {
-    // const id = window.location.href.split('restaurants/')[1];
-    console.log('component did mount');
-    const id = this.props.place_id;
+    const id = window.location.href.split('restaurants/')[1];
     if (typeof(window) !== 'undefined') {
       this.getRequestWithId(id);
     }
   }
 
-  // getRequestWithId(id) {
-  //   const appContext = this;
-  //   // `${BASE_URL}/api/restaurants/${id}/gallery`
-  //   axios.get(`http://localhost:3002/api/restaurants/${id}/gallery`)
-  //     .then(({ data }) => {
-  //       appContext.setState({ images: data.photoArray, restaurantName: data.restaurantName, place_id: data.place_id });
-  //     })
-  //     .catch(err => console.error(err));
-  // }
-
   getRequestWithId(id) {
-    //const appContext = this;
-    // `${BASE_URL}/api/restaurants/${id}/gallery`
-    console.log('component did mount');
     axios.get(`http://localhost:3002/api/restaurants/${id}/gallery`)
       .then(({ data }) => {
         this.setState({ images: data.photoArray, restaurantName: data.restaurantName, place_id: data.place_id });
-        console.log(this.state);
       })
       .catch(err => console.error(err));
   }
@@ -163,6 +141,7 @@ class ApateezGallery extends React.Component {
       </div>
     );
   }
-} 
-  
-ReactDOM.render(< ApateezGallery/>, document.getElementById('gallery'));
+}
+
+export default Gallery;
+

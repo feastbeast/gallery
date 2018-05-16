@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import {Button, Icon, Modal, Dropdown, Navbar } from 'react-materialize';
+import { Button, Icon, Modal, Dropdown, Navbar } from 'react-materialize';
 //social component 
 class Social extends React.Component {
   constructor(props) {
