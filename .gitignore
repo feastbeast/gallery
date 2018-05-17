@@ -8,6 +8,8 @@ coverage/
 
 ## Compiled files ##
 client/dist/bundle.js
+client/dist/gallery.js
+client/dist/gallery-server.js
 10MJson.json
 10MCSV.csv
 
