@@ -12,7 +12,7 @@
     "start": "node server/index.js",
     "test": "jest --coverage",
     "seed": "node database/seed.js",
-    "docker": "npm run build:prod && npm run seed & npm run start",
+    "docker": "npm run react-dev && npm run start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
