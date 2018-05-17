@@ -1,19 +1,14 @@
+var webpack = require('webpack');
 var path = require('path');
 var SRC_DIR = path.join(__dirname, '/client/src');
 var DIST_DIR = path.join(__dirname, '/client/dist');
-var webpack = require('webpack');
 
-module.exports = {
+const common = {
   plugins: [
     new webpack.DefinePlugin({
-      BASE_URL: JSON.stringify('http://54.153.55.71:3002')
+      'IMAGE_URL': JSON.stringify('https://s3-us-west-1.amazonaws.com/apateez'),
     })
   ],
-  entry: `${SRC_DIR}/index.jsx`,
-  output: {
-    filename: 'bundle.js',
-    path: DIST_DIR
-  },
   module : {
     loaders : [
       {
@@ -22,15 +17,37 @@ module.exports = {
         loader : 'babel-loader',      
         query: {
           presets: ['react', 'es2015']
-        }
+       }
       },
       {
-       test: /\.css$/,
-       use: ["style-loader","css-loader"]
-     }
+        test: /\.css$/,
+        use: ['style-loader','css-loader']
+      }
     ]
+  }
+}
+
+const client = {
+  entry: `${SRC_DIR}/client.js`,
+  output: {
+    filename: 'gallery.js',
+    path: DIST_DIR,
   }
 };
 
+const server = {
+  entry: `${SRC_DIR}/server.js`,
+  target: 'node',
+  output: {
+    filename: 'gallery-server.js',
+    path: DIST_DIR,
+    libraryTarget: "commonjs-module"
+  },
+};
+
+module.exports = [
+  Object.assign({}, common, server),
+  Object.assign({}, common, client)
+];
 
  

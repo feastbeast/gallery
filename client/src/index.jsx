@@ -4,14 +4,12 @@ import Lightbox from 'react-image-lightbox';
 import { Button, Icon } from 'react-materialize';
 import Modal from 'react-modal';
 import axios from 'axios';
-import OpeningPageGalleryView from './openingGrid.jsx';
-import FullGalleryOpenGrid from './fullGalleryOpenGrid.jsx';
-import Header from './Header.jsx';
-import Social from './social.jsx';
-import '../dist/style.css';
+import OpeningPageGalleryView from './components/openingGrid.jsx';
+import FullGalleryOpenGrid from './components/fullGalleryOpenGrid.jsx';
+import Header from './components/Header.jsx';
+import Social from './components/social.jsx';
 
-
-class ApateezGallery extends React.Component {
+class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,27 +26,14 @@ class ApateezGallery extends React.Component {
     this.clickHandleView = this.clickHandleView.bind(this);
     this.searchRestaurant = this.searchRestaurant.bind(this);
   }
-  componentWillMount() {
-    Modal.setAppElement(document.getElementById('app'));
-  }
   componentDidMount() {
     const id = window.location.href.split('restaurants/')[1];
-    this.getRequestWithId(id);
+    if (typeof(window) !== 'undefined') {
+      this.getRequestWithId(id);
+    }
   }
 
-  // getRequestWithId(id) {
-  //   const appContext = this;
-  //   // `${BASE_URL}/api/restaurants/${id}/gallery`
-  //   axios.get(`http://localhost:3002/api/restaurants/${id}/gallery`)
-  //     .then(({ data }) => {
-  //       appContext.setState({ images: data.photoArray, restaurantName: data.restaurantName, place_id: data.place_id });
-  //     })
-  //     .catch(err => console.error(err));
-  // }
-
   getRequestWithId(id) {
-    //const appContext = this;
-    // `${BASE_URL}/api/restaurants/${id}/gallery`
     axios.get(`http://localhost:3002/api/restaurants/${id}/gallery`)
       .then(({ data }) => {
         this.setState({ images: data.photoArray, restaurantName: data.restaurantName, place_id: data.place_id });
@@ -156,6 +141,7 @@ class ApateezGallery extends React.Component {
       </div>
     );
   }
-} 
-  
-ReactDOM.render(< ApateezGallery/>, document.getElementById('app'));
+}
+
+export default Gallery;
+
