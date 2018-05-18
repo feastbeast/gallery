@@ -1,22 +1,20 @@
 {
-  "name": "fec",
+  "name": "apateez-gallery",
   "version": "1.0.0",
-  "description": "",
+  "description": "Gallery component for Apateez",
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "generate-json": "node database/generateJSON.js",
+    "build": "webpack",
     "generate-csv": "node database/generateCSV.js",
-    "build:prod": "webpack -p",
     "server-dev": "nodemon --inspect server/index.js",
     "start": "node server/index.js",
     "test": "jest --coverage",
     "seed": "node database/seed.js",
-    "docker": "npm run react-dev && npm run start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "author": "Yogita",
+  "author": "Shiyao Li",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.23.1",
