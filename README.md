@@ -39,12 +39,11 @@ Create schema
 psql -d $yourdb -a -f schema.sql
 ```
 
-Copy CSV file into gallery
-
 From within Postgres server, connect to gallery:
 ```sh
 \connect gallery
 ```
+Copy CSV file into gallery
 ```sh
 \copy lists(place_id,name,photos) from '/path/to/10MCSV.csv' delimiter '|' csv header;
 ```
