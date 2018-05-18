@@ -40,6 +40,7 @@ psql -d $yourdb -a -f schema.sql
 ```
 
 Copy CSV file into gallery
+
 From within Postgres server, connect to gallery:
 ```sh
 \connect gallery
