@@ -41,6 +41,7 @@ npm run generate-csv
 ##### Seeding Database
 1. Create postgres database 'gallery'
 2. Copy CSV file into gallery
+
 From within Postgres server, connect to gallery:
 ```sh
 \copy lists(place_id,name,photos) from '/path/to/10MCSV.csv' delimiter '|' csv header;
