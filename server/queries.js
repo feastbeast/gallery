@@ -15,8 +15,17 @@ const options = {
 
 const pgp = require('pg-promise')(options);
 
-const connectionString = 'postgres://ec2-34-201-114-177.compute-1.amazonaws.com:5432/gallery';
-const db = pgp(connectionString);
+const connectionObject = {
+  host: 'http://34.201.114.177',
+  port: 5432,
+  database: 'gallery',
+  user: 'postgres',
+  password: 'postgres',
+};
+
+// const connectionString = 'postgres://ec2-34-201-114-177.compute-1.amazonaws.com:5432/gallery';
+
+const db = pgp(connectionObject);
 
 const getRestaurantInfo = (req, res, next) => {
   const id = req.params.id;
