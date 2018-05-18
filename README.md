@@ -4,8 +4,13 @@ Apateez
 
 ## Related Projects
 
+  ##### Reviews
   - https://github.com/feastbeast/reviews
+
+  ##### Nearby
   - https://github.com/feastbeast/nearby
+
+  ##### Sidebar
   - https://github.com/feastbeast/sidebar
 
 ## Table of Contents
@@ -15,16 +20,6 @@ Apateez
 1. [Development](#development)
 
 ## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 8.11.2
-
-## Development
 
 ### Starting Project
 
@@ -57,3 +52,11 @@ npm run build
 ```sh
 npm start
 ```
+
+## Requirements
+
+An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+
+- Node 8.11.2
+
+## Development
