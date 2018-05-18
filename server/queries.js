@@ -15,10 +15,17 @@ const options = {
 
 const pgp = require('pg-promise')(options);
 
-const connectionString = 'postgres://ec2-34-201-114-177.compute-1.amazonaws.com:5432/gallery';
-const db = pgp(connectionString);
+const connectionObject = {
+  host: '184.72.120.46',
+  port: 5432,
+  database: 'gallery',
+  user: 'postgres',
+  password: 'postgres',
+};
 
-const getRestaurantInfo = (req, res, next) => {
+const db = pgp(connectionObject);
+
+const getRestaurantInfo = (req, res) => {
   const id = req.params.id;
   db.any('SELECT * FROM lists WHERE place_id = $1', id)
     .then((data) => {
@@ -40,7 +47,7 @@ const getRestaurantInfo = (req, res, next) => {
       res.send(info);
       client.setex(id, 3600, JSON.stringify(info));
     })
-    .catch(err => next(err));
+    .catch(err => console.log(err));
 };
 
 const getCache = (req, res) => {
