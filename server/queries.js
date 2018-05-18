@@ -16,7 +16,7 @@ const options = {
 const pgp = require('pg-promise')(options);
 
 const connectionObject = {
-  host: '34.201.114.177',
+  host: '172.31.90.89',
   port: 5432,
   database: 'gallery',
   user: 'postgres',
