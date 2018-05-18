@@ -16,11 +16,11 @@ const options = {
 const pgp = require('pg-promise')(options);
 
 const connectionObject = {
-  host: '172.31.90.89',
+  host: '34.201.114.177',
   port: 5432,
   database: 'gallery',
-  user: 'postgres',
-  password: 'postgres',
+  user: 'shiyao',
+  password: 'shiyao',
 };
 
 // const connectionString = 'postgres://ec2-34-201-114-177.compute-1.amazonaws.com:5432/gallery';
