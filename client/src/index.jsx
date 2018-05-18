@@ -34,7 +34,7 @@ class Gallery extends React.Component {
   }
 
   getRequestWithId(id) {
-    axios.get(`http://18.205.188.67:80/api/restaurants/${id}/gallery`)
+    axios.get(`http://18.205.188.67:3002/api/restaurants/${id}/gallery`)
       .then(({ data }) => {
         this.setState({ images: data.photoArray, restaurantName: data.restaurantName, place_id: data.place_id });
       })
