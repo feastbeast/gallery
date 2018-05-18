@@ -1,6 +1,6 @@
 # Project Name
 
-Apateez
+####Apateez
 
 ## Related Projects
 
@@ -34,9 +34,12 @@ npm install
 npm run generate-csv
 ```
 ##### Seeding Database
-1. Create postgres database 'gallery'
-2. Copy CSV file into gallery
+Create schema
+```sh
+psql -d $yourdb -a -f schema.sql
+```
 
+Copy CSV file into gallery
 From within Postgres server, connect to gallery:
 ```sh
 \connect gallery
