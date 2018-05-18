@@ -44,6 +44,9 @@ npm run generate-csv
 
 From within Postgres server, connect to gallery:
 ```sh
+\connect gallery
+```
+```sh
 \copy lists(place_id,name,photos) from '/path/to/10MCSV.csv' delimiter '|' csv header;
 ```
 ##### Building Compiled Bundles
