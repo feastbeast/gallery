@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import OpeningPageGalleryView from './components/openingGrid.jsx';
 import FullGalleryOpenGrid from './components/fullGalleryOpenGrid.jsx';
-import Header from './components/Header.jsx';
+import Header from './components/header.jsx';
 import Social from './components/social.jsx';
 
 class Gallery extends React.Component {
