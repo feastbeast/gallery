@@ -1,6 +1,6 @@
 # Project Name
 
-####Apateez
+#### Apateez
 
 ## Related Projects
 
@@ -25,15 +25,15 @@
 
 From within the root directory:
 
-##### Installing Dependencies
+#### Installing Dependencies
 ```sh
 npm install
 ```
-##### Generating Data
+#### Generating Data
 ```sh
 npm run generate-csv
 ```
-##### Seeding Database
+#### Seeding Database
 Create schema
 ```sh
 psql -d $yourdb -a -f schema.sql
@@ -47,11 +47,11 @@ From within Postgres server, connect to gallery:
 ```sh
 \copy lists(place_id,name,photos) from '/path/to/10MCSV.csv' delimiter '|' csv header;
 ```
-##### Building Compiled Bundles
+#### Building Compiled Bundles
 ```sh
 npm run build
 ```
-##### Starting Server
+#### Starting Server
 ```sh
 npm start
 ```
