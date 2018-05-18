@@ -23,8 +23,6 @@ const connectionObject = {
   password: 'postgres',
 };
 
-// const connectionString = 'postgres://ec2-34-201-114-177.compute-1.amazonaws.com:5432/gallery';
-
 const db = pgp(connectionObject);
 
 const getRestaurantInfo = (req, res) => {
